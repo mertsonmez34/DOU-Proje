@@ -1,0 +1,28 @@
+.navbar navbar-expand-lg navbar-dark bg-dark
+{
+visibility:collapse;    
+}
+.jumbotron
+{
+    background-image: url("../img/jumbotron5.jpg");
+    background-size: cover;
+    
+}
+.display-4
+{
+    color: white;
+}
+#img1{
+    background-image: url("../img/iphone-kurumsal-akilli-telefon-kampanyasi_279x209.jpg");
+}
+#loginButton{
+    background-color: white;
+    color: black;
+}
+.card{
+    margin-right: 30px;
+}
+.card-group{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
