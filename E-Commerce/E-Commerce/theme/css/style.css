@@ -2,6 +2,9 @@
 {
 visibility:collapse;    
 }
+html {
+    scroll-behavior: smooth;
+}
 .jumbotron
 {
     background-image: url("../img/jumbotron5.jpg");
@@ -15,14 +18,113 @@ visibility:collapse;
 #img1{
     background-image: url("../img/iphone-kurumsal-akilli-telefon-kampanyasi_279x209.jpg");
 }
+#imgCard{
+    width:150px;
+    height:150px;
+}
 #loginButton{
     background-color: white;
     color: black;
 }
-.card{
-    margin-right: 30px;
+.card {
+    margin-right: 10px;
+    height: 300px;
+    width: 800px;
+    align-items: center;
 }
 .card-group{
     margin-bottom: 30px;
     margin-top: 30px;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+    padding: 60px 15px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+#slider {
+    overflow: hidden;
+}
+
+    #slider figure {
+        position: relative;
+        width:450%;
+        margin: 0;
+        animation: 20s slider infinite;
+    }
+
+        #slider figure img {
+            float: left;
+            width: 20%;
+        }
+
+@keyframes slider {
+    0% {
+        left: 0;
+    }
+
+    20% {
+        left: 0;
+    }
+
+    25% {
+        left: -100%;
+    }
+
+    45% {
+        left: -100%;
+    }
+
+    50% {
+        left: -200%;
+    }
+
+    70% {
+        left: -200%;
+    }
+
+    75% {
+        left: -300%;
+    }
+
+    95% {
+        left: -300%;
+    }
+
+    100% {
+        left: -400%;
+    }
 }

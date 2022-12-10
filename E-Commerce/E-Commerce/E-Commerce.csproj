@@ -95,6 +95,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="theme\css\style.css" />
     <Content Include="theme\home.html" />
+    <Content Include="theme\img\1-1663936237047.jpg" />
     <Content Include="theme\img\iphone-kurumsal-akilli-telefon-kampanyasi_279x209.jpg" />
     <Content Include="theme\img\jumbotron4.jpg" />
     <Content Include="theme\img\jumbotron5.jpg" />
@@ -102,6 +103,10 @@
     <Content Include="theme\img\jumbotronBackGround2.jpg" />
     <Content Include="theme\img\jumbotronBG3.jpg" />
     <Content Include="theme\img\logo.png" />
+    <Content Include="theme\img\analogo.png" />
+    <Content Include="theme\img\sarar-bisiklet-yaka-t-shirt-5748-basic-tisort-sarar-7503-57-B.jpg" />
+    <Content Include="theme\img\shop.png.jpg" />
+    <Content Include="theme\img\shop2.png" />
     <Content Include="theme\js\holder.min.js" />
     <Content Include="theme\product-details.html" />
     <Content Include="theme\product-list.html" />

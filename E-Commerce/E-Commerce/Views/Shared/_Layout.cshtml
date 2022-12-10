@@ -12,10 +12,10 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
 
-            <img src="theme/img/logo.png" alt="..." class="navbar-brand" height="60px" width="150px">
+            <img src="~/theme/img/analogo.png" alt="..." class="navbar-brand" height="60px" width="150px">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,96 +54,60 @@
                 <div class="col-12">
                     <div class="dropdown">
                         <div class="btn-group">
-                            <button class="btn btn-light dropdown-toggle mr-2 ml-2" type="button" id="electronicDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#electronicSection" class="btn btn-light mr-3 ml-2" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-phone"></i>
                                 Electronic
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="electronicDropDown">
-                                <a class="dropdown-item" href="#">Mobile Phone</a>
-                                <a class="dropdown-item" href="#">Computer</a>
-                                <a class="dropdown-item" href="#">Television</a>
-                                <a class="dropdown-item" href="#">Smart Watches</a>
-                                <a class="dropdown-item" href="#">Headphones</a>
-                                <a class="dropdown-item" href="#">Household Appliances</a>
-
-                            </div>
+                            </a>
                         </div>
                         <div class="btn-group">
-                            <button class="btn btn-light dropdown-toggle mr-2" type="button" id="fashionDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#fashionSection" class="btn btn-light mr-3" id="fashionDropDown"  aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-bag"></i>
                                 Fashion
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="fashionDropDown">
-                                <a class="dropdown-item" href="#">Men's clothing</a>
-                                <a class="dropdown-item" href="#">Women's clothing</a>
-                                <a class="dropdown-item" href="#">Kids clothing</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                            </div>
+                            </a>
                         </div>
                         <div class="btn-group">
-                            <button class="btn btn-light dropdown-toggle mr-2" type="button" id="homeDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#homeSection" class="btn btn-light  mr-3" id="homeDropDown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-house-door"></i>
                                 Home,Life
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="homeDropDown">
-                                <a class="dropdown-item" href="#">Kitchen Stuff</a>
-                                <a class="dropdown-item" href="#">Bedroom Stuff</a>
-                                <a class="dropdown-item" href="#">Sofa Set</a>
-                                <a class="dropdown-item" href="#">Office Desk</a>
-                                <a class="dropdown-item" href="#">Chairs</a>
-                                <a class="dropdown-item" href="#">Office Machines</a>
-                            </div>
+                            </a>
                         </div>
                         <div class="btn-group">
-                            <button class="btn btn-light dropdown-toggle mr-2" type="button" id="homeDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#sportSection" class="btn btn-light  mr-3" id="sportDropDown"aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-activity"></i>
                                 Sport,Outdoor
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="homeDropDown">
-                                <a class="dropdown-item" href="#">Ball</a>
-                                <a class="dropdown-item" href="#">Bicycle</a>
-                                <a class="dropdown-item" href="#">Camping Stuff</a>
-                                <a class="dropdown-item" href="#">Sneakers</a>
-                                <a class="dropdown-item" href="#">Sport Accessories</a>
-                                <a class="dropdown-item" href="#">Fitness and Condition</a>
-                            </div>
+                            </a>
                         </div>
                         <div class="btn-group">
-                            <button class="btn btn-light dropdown-toggle mr-2" type="button" id="homeDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#cosmeticSection"class="btn btn-light  mr-3" id="cosmeticDropDown"ria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-person"></i>
                                 Cosmetics,Personal Care
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="homeDropDown">
-                                <a class="dropdown-item" href="#">Parfume</a>
-                                <a class="dropdown-item" href="#">Make-up</a>
-                                <a class="dropdown-item" href="#">Skin Care</a>
-                                <a class="dropdown-item" href="#">Dental Care</a>
-                                <a class="dropdown-item" href="#">Hair Care</a>
-                                <a class="dropdown-item" href="#">Epilation And Waxing</a>
-                            </div>
+                            </a>
                         </div>
                         <div class="btn-group">
-                            <button class="btn btn-light dropdown-toggle mr-2" type="button" id="homeDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#bookSection" class="btn btn-light  mr-3" id="bookDropDown"aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-book"></i>
                                 Book,Music,Movie
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="homeDropDown">
-                                <a class="dropdown-item" href="#">Book And Magazine</a>
-                                <a class="dropdown-item" href="#">Enstruments</a>
-                                <a class="dropdown-item" href="#">Hobby And Games</a>
-                                <a class="dropdown-item" href="#">Movies</a>
-                                <a class="dropdown-item" href="#">Music And Media</a>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-    
+
     <div class="container">
         @RenderBody()
     </div>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.
+                <a href="#navbar" class="btn btn-light mr-3 ml-2" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-arrow-up"></i>
+                    Back to top
+                </a>
+            </span>
+        </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
