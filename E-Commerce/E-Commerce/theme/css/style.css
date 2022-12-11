@@ -9,7 +9,7 @@ html {
 {
     background-image: url("../img/jumbotron5.jpg");
     background-size: cover;
-    
+ 
 }
 .display-4
 {
@@ -21,6 +21,14 @@ html {
 #imgCard{
     width:150px;
     height:150px;
+}
+#writeReview {
+    margin-left: -70px;
+}
+
+#productPrice {
+    font-size: 26px;
+    color: red;
 }
 #loginButton{
     background-color: white;
