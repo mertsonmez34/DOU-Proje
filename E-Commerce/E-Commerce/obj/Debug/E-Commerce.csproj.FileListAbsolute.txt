@@ -231,8 +231,8 @@ C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.Web.We
 C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.Web.Webpages.Razor.resources.dll
 C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.Web.Helpers.resources.dll
 C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.Web.Mvc.resources.dll
+C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.AssemblyReference.cache
 C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.CoreCompileInputs.cache
 C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.CopyComplete
 C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.dll
 C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.pdb
-C:\Users\merts\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.AssemblyReference.cache

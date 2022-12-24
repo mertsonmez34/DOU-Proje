@@ -26,5 +26,13 @@ namespace E_Commerce.Controllers
         {
             return View(_context.Products.Where(i => i.ProductAvailable).ToList());
         }
+        public ActionResult Login()
+        {
+            return View();        
+        }
+        public ActionResult Signin()
+        {
+            return View();
+        }
     }
 }

@@ -22,8 +22,20 @@ html {
     background-color: white;
     color: black;
 }
+.card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .card{
-    height:80px;
+    height:33rem;
+}
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
