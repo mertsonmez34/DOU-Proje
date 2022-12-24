@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +15,7 @@ namespace E_Commerce.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(_context.Products.Where(i => i.IsPromoted && i.ProductAvailable).ToList());
+            return View(_context.Products.Where(i => i.IsPromoted).ToList());
         }
 
         public ActionResult Details(int id)
@@ -22,9 +23,9 @@ namespace E_Commerce.Controllers
             return View(_context.Products.Where(i => i.ID == id).FirstOrDefault());
         }
 
-        public ActionResult List()
+        public ActionResult List(int id)
         {
-            return View(_context.Products.Where(i => i.ProductAvailable).ToList());
+            return View(_context.Products.Where(i => i.ProductAvailable && i.CategoryID==id).ToList());
         }
         public ActionResult Login()
         {
@@ -34,5 +35,6 @@ namespace E_Commerce.Controllers
         {
             return View();
         }
+        
     }
 }

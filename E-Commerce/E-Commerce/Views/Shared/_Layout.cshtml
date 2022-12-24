@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿@using E_Commerce.Entity;
+@model IEnumerable<Product>
+<!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -20,7 +22,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-           
+
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
@@ -56,37 +58,37 @@
                 <div class="col-12">
                     <div class="dropdown">
                         <div class="btn-group">
-                            <a href="#electronicSection" class="btn btn-light mr-3 ml-2" aria-haspopup="true" aria-expanded="false">
+                            <a href="/Home/List/1" class="btn btn-light mr-3 ml-2" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-phone"></i>
                                 Electronic
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a href="#fashionSection" class="btn btn-light mr-3" id="fashionDropDown"  aria-haspopup="true" aria-expanded="false">
+                            <a href="/Home/List/2" class="btn btn-light mr-3" id="fashionDropDown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-bag"></i>
                                 Fashion
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a href="#homeSection" class="btn btn-light  mr-3" id="homeDropDown" aria-haspopup="true" aria-expanded="false">
+                            <a href="/Home/List/3" class="btn btn-light  mr-3" id="homeDropDown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-house-door"></i>
                                 Home,Life
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a href="#sportSection" class="btn btn-light  mr-3" id="sportDropDown"aria-haspopup="true" aria-expanded="false">
+                            <a href="/Home/List/4" class="btn btn-light  mr-3" id="sportDropDown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-activity"></i>
                                 Sport,Outdoor
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a href="#cosmeticSection"class="btn btn-light  mr-3" id="cosmeticDropDown"ria-haspopup="true" aria-expanded="false">
+                            <a href="/Home/List/5" class="btn btn-light  mr-3" id="cosmeticDropDown" ria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-person"></i>
                                 Cosmetics,Personal Care
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a href="#bookSection" class="btn btn-light  mr-3" id="bookDropDown"aria-haspopup="true" aria-expanded="false">
+                            <a href="/Home/List/6" class="btn btn-light  mr-3" id="bookDropDown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-book"></i>
                                 Book,Music,Movie
                             </a>
@@ -102,7 +104,8 @@
     </div>
     <footer class="footer">
         <div class="container">
-            <span class="text-muted">Place sticky footer content here.
+            <span class="text-muted">
+                Place sticky footer content here.
                 <a href="#navbar" class="btn btn-light mr-3 ml-2" aria-haspopup="true" aria-expanded="false">
                     <i class="bi bi-arrow-up"></i>
                     Back to top
