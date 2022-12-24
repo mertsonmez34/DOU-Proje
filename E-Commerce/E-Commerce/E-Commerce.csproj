@@ -126,9 +126,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\Message.cs" />
     <Compile Include="Entity\DataContext.cs" />
     <Compile Include="Entity\DataInitializer.cs" />
+    <Compile Include="Entity\OrderDetail.cs" />
+    <Compile Include="Entity\Orders.cs" />
+    <Compile Include="Entity\Payment.cs" />
     <Compile Include="Entity\Product.cs" />
+    <Compile Include="Entity\Shipper.cs" />
+    <Compile Include="Entity\Supplier.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -14,7 +14,7 @@ namespace E_Commerce.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(_context.Products.Where(i => i.IsHome && i.ProductAvailable).ToList());
+            return View(_context.Products.Where(i => i.IsPromoted && i.ProductAvailable).ToList());
         }
 
         public ActionResult Details(int id)
