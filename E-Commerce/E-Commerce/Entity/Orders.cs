@@ -18,5 +18,21 @@ namespace E_Commerce.Entity
         public bool IsDeleted { get; set; }
         public double TotalPaid { get; set; }
         public DateTime PaymentDate { get; set; }
+        public virtual List<OrderLine> Orderlines { get; set; }
+    }
+
+    public class OrderLine
+    {
+        public int Id { get; set; }
+
+        public int OrderId { get; set; }
+        public virtual Orders Order { get; set; }
+
+        public int Quantity { get; set; }
+
+        public double Price { get; set; }
+
+        public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
