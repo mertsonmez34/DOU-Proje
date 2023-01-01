@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Abc.MvcWebUI.Entity;
-using Abc.MvcWebUI.Identity;
-using Abc.MvcWebUI.Models;
+using E_Commerce.Entity;
+using E_Commerce.Identity;
+using E_Commerce.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 
-namespace Abc.MvcWebUI.Controllers
+namespace E_Commerce.Controllers
 {
     public class AccountController : Controller
     {

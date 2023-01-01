@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Abc.MvcWebUI.Entity
+namespace E_Commerce.Entity
 {
     public enum EnumOrderState
     {

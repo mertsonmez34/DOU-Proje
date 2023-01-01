@@ -34,16 +34,7 @@
                     <input class="form-control" type="search" placeholder="Search the product" aria-label="Search">
                     <button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     <ul class="navbar-nav mr-auto">
-                        <li class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle mr-2 ml-4" type="button" id="loginButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-box-arrow-in-right mr-2"></i>
-                                Log In
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Log In</a>
-                                <a class="dropdown-item" href="#">Sign In</a>
-                            </div>
-                        </li>
+                        @Html.Partial("_LoginPartial")
                         <li class="nav-item active">
                             <a class="nav-link" href="#"><i class="bi bi-basket-fill" role="img" aria-label="GitHub"></i> Basket <span class="sr-only">(current)</span></a>
                         </li>

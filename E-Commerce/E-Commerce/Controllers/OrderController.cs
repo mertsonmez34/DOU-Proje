@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Abc.MvcWebUI.Entity;
-using Abc.MvcWebUI.Models;
+using E_Commerce.Models;
+using E_Commerce.Entity;
 
-namespace Abc.MvcWebUI.Controllers
+namespace E_Commerce.Controllers
 {
     [Authorize(Roles = "admin")]
     public class OrderController : Controller

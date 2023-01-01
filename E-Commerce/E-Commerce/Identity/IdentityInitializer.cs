@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using Abc.MvcWebUI.Entity;
+using E_Commerce.Entity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 
-namespace Abc.MvcWebUI.Identity
+namespace E_Commerce.Identity
 {
     public class IdentityInitializer : CreateDatabaseIfNotExists<IdentityDataContext>
     {

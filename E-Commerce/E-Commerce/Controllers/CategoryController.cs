@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Abc.MvcWebUI.Entity;
+using E_Commerce.Entity;
 
-namespace Abc.MvcWebUI.Controllers
+namespace E_Commerce.Controllers
 {
     [Authorize(Roles = "admin")]
     public class CategoryController : Controller

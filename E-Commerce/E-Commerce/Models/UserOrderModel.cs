@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Abc.MvcWebUI.Entity;
+using E_Commerce.Entity;
 
-namespace Abc.MvcWebUI.Models
+namespace E_Commerce.Models
 {
     public class UserOrderModel
     {

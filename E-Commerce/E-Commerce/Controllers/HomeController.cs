@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Abc.MvcWebUI.Models;
+using E_Commerce.Models;
 using E_Commerce.Entity;
 
 namespace E_Commerce.Controllers
@@ -16,7 +16,7 @@ namespace E_Commerce.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var urunler = _context.Products
+            /*var urunler = _context.Products
                 .Where(i => i.IsHome && i.IsApproved)
                 .Select(i => new ProductModel()
                 {
@@ -29,9 +29,9 @@ namespace E_Commerce.Controllers
                     CategoryId = i.CategoryId
                 }).ToList();
 
-            return View(urunler);
+            return View(urunler);*/
 
-            //return View(_context.Products.Where(i => i.IsHome).ToList());
+            return View(_context.Products.Where(i => i.IsHome).ToList());
         }
 
         public ActionResult Details(int id)
@@ -41,7 +41,7 @@ namespace E_Commerce.Controllers
 
         public ActionResult List(int? id)
         {
-            var urunler = _context.Products
+            /*var urunler = _context.Products
                 .Where(i => i.IsApproved)
                 .Select(i => new ProductModel()
                 {
@@ -59,9 +59,9 @@ namespace E_Commerce.Controllers
                 urunler = urunler.Where(i => i.CategoryId == id);
             }
 
-            return View(urunler.ToList());
+            return View(urunler.ToList());*/
 
-            //return View(_context.Products.Where(i => i.ProductAvailable && i.CategoryId==id).ToList());
+            return View(_context.Products.Where(i => i.ProductAvailable && i.CategoryId==id).ToList());
         }
         public PartialViewResult GetCategories()
         {

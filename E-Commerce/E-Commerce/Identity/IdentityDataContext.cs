@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Abc.MvcWebUI.Identity
+namespace E_Commerce.Identity
 {
     public class IdentityDataContext : IdentityDbContext<ApplicationUser>
     {

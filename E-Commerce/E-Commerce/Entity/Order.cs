@@ -1,4 +1,4 @@
-﻿using Abc.MvcWebUI.Entity;
+﻿using E_Commerce.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
