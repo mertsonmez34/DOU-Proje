@@ -269,3 +269,7 @@ C:\Users\mert.sonmez\Source\Reposito\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E
 C:\Users\mert.sonmez\Source\Reposito\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.CopyComplete
 C:\Users\mert.sonmez\Source\Reposito\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.dll
 C:\Users\mert.sonmez\Source\Reposito\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.pdb
+C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFramework.dll
+C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFramework.SqlServer.dll
+C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFramework.xml
+C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFramework.SqlServer.xml
