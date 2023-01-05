@@ -1,1 +1,28 @@
-﻿
+﻿@using E_Commerce.Models;
+@model IEnumerable<ProductModel>
+<div class="row mt-3">
+
+        @foreach (var urun in Model)
+        {
+            <div class="col-md-3 mt-5">
+                <a href="/Home/Details/@urun.ID">
+                    <div class="card inline-block">
+                        <img class="card-img-top" src=@urun.PictureURL alt="@urun.ProductName">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                @urun.ProductName
+                            </h4>
+                            <p class="card-text">
+                                @urun.ProductDescription
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="text-secondary">$@urun.UnitPrice</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        }
+
+</div>

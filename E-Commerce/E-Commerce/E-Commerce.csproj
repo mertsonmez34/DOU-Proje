@@ -111,7 +111,7 @@
     <Content Include="theme\img\jumbotronBackground1.jpg" />
     <Content Include="theme\img\jumbotronBackGround2.jpg" />
     <Content Include="theme\img\jumbotronBG3.jpg" />
-    <Content Include="theme\img\logo.png" />
+    <Content Include="Upload\logo.png" />
     <Content Include="theme\img\analogo.png" />
     <Content Include="theme\img\sarar-bisiklet-yaka-t-shirt-5748-basic-tisort-sarar-7503-57-B.jpg" />
     <Content Include="theme\img\shop.png.jpg" />
@@ -138,6 +138,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301051411533_E-Commerce.db.cs" />
+    <Compile Include="Migrations\202301051411533_E-Commerce.db.designer.cs">
+      <DependentUpon>202301051411533_E-Commerce.db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,7 +166,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202301051411533_E-Commerce.db.resx">
+      <DependentUpon>202301051411533_E-Commerce.db.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

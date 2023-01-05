@@ -273,3 +273,5 @@ C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFram
 C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFramework.SqlServer.dll
 C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFramework.xml
 C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\EntityFramework.SqlServer.xml
+C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E_Commerce.Migrations.ECommercedb.resources
+C:\Users\mert.sonmez\source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.GenerateResource.cache

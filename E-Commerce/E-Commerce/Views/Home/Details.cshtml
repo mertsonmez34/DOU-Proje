@@ -1,15 +1,15 @@
-﻿@using E_Commerce.Entity;
-@model Product
+﻿@using E_Commerce.Models;
+@model ProductModel
 @{
     ViewBag.Title = "Details";
     //Layout = "/Views/Shared/_Layout.cshtml";
 }
-<div class="container pb-5">
+<div id="productDetails" class="container pb-5">
     <div class="row">
         <div class="col-md-6">
             <img src=@Model.PictureURL class="img-fluid rounded">
         </div>
-        <div>
+        <div class="col-md-6">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12 ml-2">
@@ -18,8 +18,20 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12 ml-2 mt-1">
-                        <span class="badge badge-primary">In Stock</span>
-                        <span class="product-number">#265874</span>
+                        @if (@Model.UnitInStock)
+                        {
+                            <span class="badge badge-primary">In Stock</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">Not In Stock</span>
+                        }
+
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12 ml-2 mt-1">
+                        <span id="productSku">SKU: @Model.SKU</span>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -49,7 +61,14 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12 ml-2">
-                        <button class="btn btn-success"><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>
+                        @if (Model.UnitInStock)
+                        {
+                            <button class="btn btn-success"><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-success" disabled><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>
+                        }
                     </div>
                 </div>
             </div>

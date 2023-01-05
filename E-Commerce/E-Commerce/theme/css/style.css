@@ -2,6 +2,11 @@
 {
 visibility:collapse;    
 }
+#productDetails h2{
+    font-size:22px;
+    color:#414141;
+    font-weight:700;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -9,10 +14,17 @@ html {
 {
     color: white;
 }
-#imgCard{
-    width:100px;
-    height:100px;
-    margin-left:100px;
+#description{
+    line-height:34px;
+}
+#productPrice {
+    color: gray;
+    font-size: 22px;
+}
+#imgCard {
+    width: 100px;
+    height: 100px;
+    margin-left: 100px;
 }
 #productPrice {
     font-size: 26px;
@@ -23,6 +35,10 @@ html {
     color: black;
 }
 .card-title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.35em;
+    height: 34px;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -32,6 +48,8 @@ html {
     height:33rem;
 }
 .card-text {
+    font-size:16px;
+    color:black;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

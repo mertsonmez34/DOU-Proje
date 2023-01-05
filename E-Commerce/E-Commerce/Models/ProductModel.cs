@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace E_Commerce.Entity
+namespace E_Commerce.Models
 {
-    public class Product
+    public class ProductModel
     {
         public int ID { get; set; }
         public string SKU { get; set; }
         public string ProductName { get; set; }
-        public bool IsPromoted { get; set; } // anasayfada görüntülenecek mi?
         public string ProductDescription { get; set; }
-        public int SupplierID { get; set; }
         public int CategoryID { get; set; }
-        public Category Category { get; set; }
         public double UnitPrice { get; set; }
         public string AvailableSize { get; set; } // stokta olan bedenler
         public string AvailableColors { get; set; }  // stokta olan renkler
@@ -26,7 +23,5 @@ namespace E_Commerce.Entity
         public string Note { get; set; }
         public string PictureURL { get; set; } // picture url
         public short Ranking { get; set; } //oylama
-
-
     }
 }
