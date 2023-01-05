@@ -102,10 +102,10 @@
                                 <!--<div class="form-group">-->
                                 @*@Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })*@
 
-                                <div class="col-md-10">
-                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "asdasd" } })
+                                
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "UserName" } })
                                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                                </div>
+                                
 
                                 @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
 
