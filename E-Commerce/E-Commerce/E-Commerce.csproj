@@ -191,6 +191,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="theme\css\Register.css" />
     <Content Include="theme\css\style.css" />
     <Content Include="theme\home.html" />
     <Content Include="theme\img\1-1663936237047.jpg" />
@@ -207,6 +208,7 @@
     <Content Include="theme\img\sarar-bisiklet-yaka-t-shirt-5748-basic-tisort-sarar-7503-57-B.jpg" />
     <Content Include="theme\img\shop.png.jpg" />
     <Content Include="theme\img\shop2.png" />
+    <Content Include="theme\js\Register.js" />
     <Content Include="theme\js\holder.min.js" />
     <Content Include="theme\product-details.html" />
     <Content Include="theme\product-list.html" />

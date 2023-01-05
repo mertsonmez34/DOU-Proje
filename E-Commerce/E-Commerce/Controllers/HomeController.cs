@@ -67,15 +67,14 @@ namespace E_Commerce.Controllers
         {
             return PartialView(_context.Categories.ToList());
         }
-
-        /*public ActionResult Login()
-        {
-            return View();        
-        }
-        public ActionResult Signin()
+      
+        public ActionResult Register()
         {
             return View();
-        }*/
-
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }
