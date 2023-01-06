@@ -1,15 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\E-Commerce",
-    "\\E-Commerce\\E-Commerce",
-    "\\E-Commerce\\E-Commerce\\Controllers",
-    "\\E-Commerce\\E-Commerce\\Entity",
-    "\\E-Commerce\\E-Commerce\\Identity",
-    "\\E-Commerce\\E-Commerce\\Models",
-    "\\E-Commerce\\E-Commerce\\Views",
-    "\\E-Commerce\\E-Commerce\\Views\\Home"
+    "\\E-Commerce"
   ],
-  "SelectedNode": "\\E-Commerce\\E-Commerce\\Controllers\\HomeController.cs",
+  "SelectedNode": "\\E-Commerce\\E-Commerce.sln",
   "PreviewInSolutionExplorer": false
 }

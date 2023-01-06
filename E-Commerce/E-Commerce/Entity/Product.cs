@@ -32,5 +32,6 @@ namespace E_Commerce.Entity
         public string Image { get; set; } // picture url
         public short Ranking { get; set; } //oylama
         public bool IsApproved { get; set; }
+        public string Type { get; set; }
     }
 }

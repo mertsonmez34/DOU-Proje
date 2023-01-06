@@ -16,8 +16,8 @@ namespace E_Commerce.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            /*var urunler = _context.Products
-                .Where(i => i.IsHome && i.IsApproved)
+            var urunler = _context.Products
+                .Where(i => i.IsHome)
                 .Select(i => new ProductModel()
                 {
                     Id = i.Id,
@@ -25,43 +25,48 @@ namespace E_Commerce.Controllers
                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
                     Price = i.Price,
                     Stock = i.Stock,
-                    Image = i.Image,
+                    Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                     CategoryId = i.CategoryId
                 }).ToList();
 
-            return View(urunler);*/
+            return View(urunler);
 
-            return View(_context.Products.Where(i => i.IsHome).ToList());
+           // return View(_context.Products.Where(i => i.IsHome).ToList());
         }
 
         public ActionResult Details(int id)
         {
-            return View(_context.Products.Where(i => i.Id == id).FirstOrDefault());
+            var urun = _context.Products.Where(i => i.Id == id).Select(i => new ProductModel()
+            {
+                Id = i.Id,
+                Name = i.Name,
+                SKU = i.SKU,
+                Description = i.Description,
+                Price = i.Price,
+                Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
+                CategoryId = i.CategoryId
+            }).FirstOrDefault();
+            return View(urun); 
         }
 
         public ActionResult List(int? id)
         {
-            /*var urunler = _context.Products
-                .Where(i => i.IsApproved)
-                .Select(i => new ProductModel()
-                {
-                    Id = i.Id,
-                    Name = i.Name.Length > 50 ? i.Name.Substring(0, 47) + "..." : i.Name,
-                    Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
-                    Price = i.Price,
-                    Stock = i.Stock,
-                    Image = i.Image ?? "1.jpg",
-                    CategoryId = i.CategoryId
-                }).AsQueryable();
+            var urunler = _context.Products
+                 .Where(i => i.CategoryId == id)
+                 .Select(i => new ProductModel()
+                 {
+                     Id = i.Id,
+                     Name = i.Name,
+                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 150) + "..." : i.Description,
+                     Price = i.Price,
+                     //UnitInStock = i.UnitInStock,
+                     Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
+                     CategoryId = i.CategoryId,
+                 }).ToList();
+            return View(urunler);
 
-            if (id != null)
-            {
-                urunler = urunler.Where(i => i.CategoryId == id);
-            }
 
-            return View(urunler.ToList());*/
-
-            return View(_context.Products.Where(i => i.ProductAvailable && i.CategoryId==id).ToList());
+            //return View(_context.Products.Where(i => i.ProductAvailable && i.CategoryId==id).ToList());
         }
         public PartialViewResult GetCategories()
         {

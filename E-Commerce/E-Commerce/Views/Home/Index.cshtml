@@ -1,194 +1,33 @@
-﻿@using E_Commerce.Entity;
-@model IEnumerable<Product>
+﻿@using E_Commerce.Models;
+@model IEnumerable<ProductModel>
 @{
     ViewBag.Title = "Index";
 }
-<div Id="slider">
-    <div class="container">
+<div class="container">
+    <div id="slider">
+        <div class="container">
 
-        <figure>
+            <figure>
 
-            <img src="~/theme/img/IMG-20221221-WA0001.jpg">
+                <img src="~/theme/img/IMG-20221221-WA0001.jpg">
 
-            <img src="~/theme/img/IMG-20221221-WA0002.jpg">
+                <img src="~/theme/img/IMG-20221221-WA0002.jpg">
 
-            <img src="/theme/img/IMG-20221221-WA0001.jpg">
+                <img src="/theme/img/IMG-20221221-WA0001.jpg">
 
-            <img src="/theme/img/IMG-20221221-WA0002.jpg">
+                <img src="/theme/img/IMG-20221221-WA0002.jpg">
 
-            <img src="~/theme/img/IMG-20221221-WA0001.jpg">
-
-
+                <img src="~/theme/img/IMG-20221221-WA0001.jpg">
 
 
-        </figure>
 
+
+            </figure>
+
+        </div>
     </div>
-</div>
-<h2>Electronic</h2>
-<div class="row mt-3">
-    @foreach (var urun in Model)
-    {
-        if (urun.CategoryId == 1)
-        {
-        <div class="col-md-3">
-            <a href="/Home/Details/@urun.Id">
-                <div class="card inline-block">
-                    <img class="card-img-top" src=@urun.Image alt="@urun.Name">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            @urun.Name
-                        </h4>
-                        <p class="card-text">
-                            @urun.Description
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <h4>$@urun.Price</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        }
-    }
+    <div class="container pb-5">
+        @Html.Partial("_ProductList")
+    </div>
 
 </div>
-<h2>Fashion</h2>
-<div class="row mt-3">
-    @foreach (var urun in Model)
-    {
-    if (urun.CategoryId == 2) { 
-        <div class="col-md-3">
-            <a href="/Home/Details/@urun.Id">
-                <div class="card inline-block">
-                    <img class="card-img-top" src=@urun.Image alt="@urun.Name">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            @urun.Name
-                        </h4>
-                        <p class="card-text">
-                            @urun.Description
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <h4>$@urun.Price</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        }
-    }
-
-</div>
-<h2>Home,Life</h2>
-<div class="row mt-3">
-    @foreach (var urun in Model)
-    {
-    if (urun.CategoryId == 3) { 
-        <div class="col-md-3">
-            <a href="/Home/Details/@urun.Id">
-                <div class="card inline-block">
-                    <img class="card-img-top" src=@urun.Image alt="@urun.Name">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            @urun.Name
-                        </h4>
-                        <p class="card-text">
-                            @urun.Description
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <h4>$@urun.Price</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        }
-    }
-
-</div>
-<h2>Sport,Outdoor</h2>
-<div class="row mt-3">
-    @foreach (var urun in Model)
-    {
-    if (urun.CategoryId == 4) { 
-        <div class="col-md-3">
-            <a href="/Home/Details/@urun.Id">
-                <div class="card inline-block">
-                    <img class="card-img-top" src=@urun.Image alt="@urun.Name">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            @urun.Name
-                        </h4>
-                        <p class="card-text">
-                            @urun.Description
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <h4>$@urun.Price</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        }
-    }
-
-</div>
-<h2>Cosmetics,Personal Care</h2>
-<div class="row mt-3">
-    @foreach (var urun in Model)
-    {
-    if (urun.CategoryId == 5) { 
-        <div class="col-md-3">
-            <a href="/Home/Details/@urun.Id">
-                <div class="card inline-block">
-                    <img class="card-img-top" src=@urun.Image alt="@urun.Name">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            @urun.Name
-                        </h4>
-                        <p class="card-text">
-                            @urun.Description
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <h4>$@urun.Price</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        }
-    }
-
-</div>
-<h2>Book,Musics,Movie</h2>
-<div class="row mt-3">
-    @foreach (var urun in Model)
-    {
-    if (urun.CategoryId == 6) { 
-        <div class="col-md-3">
-            <a href="/Home/Details/@urun.Id">
-                <div class="card inline-block">
-                    <img class="card-img-top" src=@urun.Image alt="@urun.Name">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            @urun.Name
-                        </h4>
-                        <p class="card-text">
-                            @urun.Description
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <h4>$@urun.Price</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        }
-    }
-
-</div>
-
-
-
-
