@@ -19,7 +19,7 @@ namespace E_Commerce.Identity
             {
                 var store = new RoleStore<ApplicationRole>(context);
                 var manager = new RoleManager<ApplicationRole>(store);
-                var role = new ApplicationRole() {Name = "admin", Description = "admin rolü"};
+                var role = new ApplicationRole() {Name = "admin", Description = "admin role"};
                 manager.Create(role);
             }
 
@@ -27,32 +27,40 @@ namespace E_Commerce.Identity
             {
                 var store = new RoleStore<ApplicationRole>(context);
                 var manager = new RoleManager<ApplicationRole>(store);
-                var role = new ApplicationRole() { Name = "user", Description = "user rolü" }; ;
+                var role = new ApplicationRole() { Name = "user", Description = "user role" }; ;
                 manager.Create(role);
             }
 
-            if (!context.Users.Any(i => i.Name == "sadikturan"))
+            if (!context.Users.Any(i => i.Name == "bahadiriren"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser() { Name = "sadık", Surname = "turan", UserName = "sadikturan", Email = "sadikturan@gmail.com" };
+                var user = new ApplicationUser() { Name = "bahadir", Surname = "iren", UserName = "bahadiriren", Email = "bahadiriren@gmail.com" };
 
                 manager.Create(user, "1234567");
                 manager.AddToRole(user.Id, "admin");
                 manager.AddToRole(user.Id, "user");
             }
 
-            if (!context.Users.Any(i => i.Name == "cinarturan"))
+            if (!context.Users.Any(i => i.Name == "mertsonmez"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser() { Name = "Çınar", Surname = "turan", UserName = "cinarturan", Email = "cinarturan@gmail.com" };
+                var user = new ApplicationUser() { Name = "mert", Surname = "sonmez", UserName = "mertsonmez", Email = "mertsonmez@gmail.com" };
 
                 manager.Create(user, "1234567");
-                manager.AddToRole(user.Id, "user");
+                manager.AddToRole(user.Id, "admin");
             }
-            
 
+            if (!context.Users.Any(i => i.Name == "mucahidakca"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser() { Name = "mucahid", Surname = "akca", UserName = "mucahidakca", Email = "mucahidakca@gmail.com" };
+
+                manager.Create(user, "1234567");
+                manager.AddToRole(user.Id, "admin");
+            }
 
             base.Seed(context);
         }

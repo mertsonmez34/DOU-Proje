@@ -68,7 +68,7 @@ namespace E_Commerce.Controllers
                 order.OrderState = OrderState;
                 db.SaveChanges();
 
-                TempData["message"] = "Bilgileriniz Kayıt Edildi";
+                TempData["message"] = "The Information Has Been Registered";
 
                 return RedirectToAction("Details", new {id = OrderId});
             }

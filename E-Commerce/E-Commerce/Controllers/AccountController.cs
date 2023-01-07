@@ -109,7 +109,7 @@ namespace E_Commerce.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("RegisterUserError", "Kullanıcı  oluşturma hatası.");
+                    ModelState.AddModelError("RegisterUserError", "User creation error.");
                 }
 
             }
@@ -159,7 +159,7 @@ namespace E_Commerce.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("LoginUserError", "Böyle bir kullanıcı yok.");
+                    ModelState.AddModelError("LoginUserError", "There is no such user.");
                 }
             }
 

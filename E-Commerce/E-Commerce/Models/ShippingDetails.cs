@@ -10,19 +10,19 @@ namespace E_Commerce.Models
     {
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Lütfen adres tanımını giriniz.")]
+        [Required(ErrorMessage = "Please enter the address description.")]
         public string AdresBasligi { get; set; }
 
-        [Required(ErrorMessage = "Lütfen bir adres giriniz.")]
+        [Required(ErrorMessage = "Please enter an address.")]
         public string Adres { get; set; }
 
-        [Required(ErrorMessage = "Lütfen şehir giriniz.")]
+        [Required(ErrorMessage = "Please enter city.")]
         public string Sehir { get; set; }
 
-        [Required(ErrorMessage = "Lütfen semt giriniz.")]
+        [Required(ErrorMessage = "Please enter district.")]
         public string Semt { get; set; }
 
-        [Required(ErrorMessage = "Lütfen mahalle giriniz.")]
+        [Required(ErrorMessage = "Please enter neighborhood.")]
         public string Mahalle { get; set; }
 
         public string PostaKodu { get; set; }

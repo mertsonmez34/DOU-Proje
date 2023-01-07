@@ -8,9 +8,9 @@ namespace E_Commerce.Entity
 {
     public enum EnumOrderState
     {
-        [Display(Name = "Onay Bekleniyor")]
+        [Display(Name = "Awaiting Approval")]
         Waiting,
-        [Display(Name = "Tamamlandı")]
+        [Display(Name = "Completed")]
         Completed
     }
 }

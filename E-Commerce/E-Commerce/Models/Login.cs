@@ -10,14 +10,13 @@ namespace E_Commerce.Models
     public class Login
     {
         [Required]
-        [DisplayName("Kullanıcı Adı")]
+        [DisplayName("User Name")]
         public string UserName { get; set; }
 
         [Required]
-        [DisplayName("Şifre")]
         public string Password { get; set; }
 
-        [DisplayName("Beni Hatırla")]
+        [DisplayName("Remember Me")]
         public bool RememberMe { get; set; }
     }
 }

@@ -10,29 +10,26 @@ namespace E_Commerce.Models
     public class Register
     {
         [Required]
-        [DisplayName("Adınız")]
         public string Name { get; set; }
 
         [Required]
-        [DisplayName("Soyadınız")]
+        [DisplayName("Surname")]
         public string SurName { get; set; }
 
         [Required]
-        [DisplayName("Kullanıcı Adı")]
+        [DisplayName("User Name")]
         public string UserName { get; set; }
 
         [Required]
-        [DisplayName("Eposta")]
-        [EmailAddress(ErrorMessage = "Eposta adresinizi düzgün giriniz.")]
+        [EmailAddress(ErrorMessage = "Entered Invalid Email.")]
         public string Email { get; set; }
 
         [Required]
-        [DisplayName("Şifre")]
         public string Password { get; set; }
 
         [Required]
-        [DisplayName("Şifre Tekrar")]
-        [Compare("Password",ErrorMessage = "Şifreleriniz uyuşmuyor.")]
+        [DisplayName("Confirm Password")]
+        [Compare("Password",ErrorMessage = "Password Does not Match.")]
         public string RePassword { get; set; }
     }
 }

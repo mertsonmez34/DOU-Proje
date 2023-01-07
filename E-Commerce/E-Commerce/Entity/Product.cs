@@ -11,11 +11,11 @@ namespace E_Commerce.Entity
         public int Id { get; set; }
         public string SKU { get; set; }
 
-        [DisplayName("Ürün Adı")]
+        [DisplayName("Product Name")]
         public string Name { get; set; }
         public bool IsHome { get; set; } // anasayfada görüntülenecek mi? (IsPromoted)
 
-        [DisplayName("Ürün Açıklama")]
+        [DisplayName("Product Description")]
         public string Description { get; set; }
         public int SupplierID { get; set; }
         public int CategoryId { get; set; }
