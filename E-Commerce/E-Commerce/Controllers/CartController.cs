@@ -71,7 +71,7 @@ namespace E_Commerce.Controllers
 
             if (cart.CartLines.Count == 0)
             {
-                ModelState.AddModelError("UrunYokError", "Sepetinizde ürün bulunmamaktadır.");
+                ModelState.AddModelError("No product error", "There are no products in your cart.");
             }
 
             if (ModelState.IsValid)
