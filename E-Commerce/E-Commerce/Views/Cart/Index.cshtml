@@ -16,8 +16,8 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Quantity</th>
                             <th>Product Name</th>
+                            <th>Quantity</th>
                             <th>Price</th>
                             <th>Sub Total</th>
                             <td></td>
@@ -26,33 +26,33 @@
                     <tbody>
                         @foreach (var item in Model.CartLines)
                         {
-                            <tr>
-                                <td>
-                                    <img src="@item.Product.Image" width="50" />
-                                </td>
-                                <td>
-                                    @item.Quantity
-                                </td>
-                                <td>
-                                    @item.Product.Name
-                                </td>
-                                <td>
-                                    @item.Product.Price
-                                </td>
-                                <td>
-                                    @((item.Product.Price * item.Quantity).ToString("c"))
-                                </td>
-                                <td>
-                                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
-                                    {
-                                        @Html.Hidden("Id", item.Product.Id)
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                            Delete
-                                        </button>
-                                    }
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <img src="@item.Product.Image" width="50" />
+                            </td>
+                            <td>
+                                @item.Product.Name
+                            </td>
+                            <td>
+                                @item.Quantity
+                            </td>
+                            <td>
+                                @item.Product.Price
+                            </td>
+                            <td>
+                                @((item.Product.Price * item.Quantity).ToString("c"))
+                            </td>
+                            <td>
+                                @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                {
+                                    @Html.Hidden("Id", item.Product.Id)
+                                    <button type="submit" class="btn btn-danger">
+                                          <i class="fa fa-trash"></i>
+                                          Delete
+                                    </button>
+                                 }
+                            </td>
+                        </tr>
                         }
                     </tbody>
                     <tfoot>

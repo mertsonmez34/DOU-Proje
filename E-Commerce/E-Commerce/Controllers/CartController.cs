@@ -59,11 +59,13 @@ namespace E_Commerce.Controllers
             return PartialView(GetCart());
         }
 
+        [Authorize]
         public ActionResult Checkout()
         {
             return View(new ShippingDetails());
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Checkout(ShippingDetails entity)
         {
@@ -86,6 +88,7 @@ namespace E_Commerce.Controllers
             }
         }
 
+        [Authorize]
         private void SaveOrder(Cart cart, ShippingDetails entity)
         {
             var order = new Order();
@@ -95,7 +98,7 @@ namespace E_Commerce.Controllers
             order.OrderDate = DateTime.Now;
             order.OrderState = EnumOrderState.Waiting;
             order.Username = User.Identity.Name;
-            
+
             order.AdresBasligi = entity.AdresBasligi;
             order.Adres = entity.Adres;
             order.Sehir = entity.Sehir;

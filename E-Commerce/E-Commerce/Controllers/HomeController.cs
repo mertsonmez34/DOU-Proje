@@ -30,8 +30,6 @@ namespace E_Commerce.Controllers
                 }).ToList();
 
             return View(urunler);
-
-           // return View(_context.Products.Where(i => i.IsHome).ToList());
         }
 
         public ActionResult Details(int id)
@@ -46,11 +44,17 @@ namespace E_Commerce.Controllers
                 Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                 CategoryId = i.CategoryId
             }).FirstOrDefault();
-            return View(urun); 
+            return View(urun);
         }
 
         public ActionResult List(int? id)
         {
+
+            if (id == null)
+            {
+                return RedirectToAction("List/1");
+            }
+
             var urunler = _context.Products
                  .Where(i => i.CategoryId == id)
                  .Select(i => new ProductModel()
@@ -65,21 +69,10 @@ namespace E_Commerce.Controllers
                  }).ToList();
             return View(urunler);
 
-
-            //return View(_context.Products.Where(i => i.ProductAvailable && i.CategoryId==id).ToList());
         }
         public PartialViewResult GetCategories()
         {
             return PartialView(_context.Categories.ToList());
-        }
-      
-        public ActionResult Register()
-        {
-            return View();
-        }
-        public ActionResult Login()
-        {
-            return View();
         }
     }
 }
