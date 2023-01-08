@@ -2,45 +2,43 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<div class="container">
+<div class="container-fluid mt-5">
     <div class="row">
-        <div class="col-md-12">
-            <h2>Order Informations</h2>
-            <hr />
+        @Html.Partial("_AccountList")
+                <div class="col-md-8">
+                    <h2>Order Informations</h2>
+                    <hr />
 
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Order Number</th>
-                        <th>Order Date</th>
-                        <th>Total</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Order Date</th>
+                                <th>Total</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.OrderNumber</td>
-                            <td>@item.OrderDate.ToShortDateString()</td>
-                            <td>
-                                <i class="fa fa-try" aria-hidden="true"></i>
-                                @item.Total
-                            </td>
-                            <td>@item.OrderState</td>
-                            <td>
-                                @Html.ActionLink("Details","Details",new {id=@item.Id},new {@class="btn btn-primary"})
-                            </td>
-                        </tr>
-                    }
-
-                </tbody>
-            </table>
-
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.OrderNumber</td>
+                                    <td>@item.OrderDate.ToShortDateString()</td>
+                                    <td>
+                                        <i class="fa fa-try" aria-hidden="true"></i>
+                                        @item.Total
+                                    </td>
+                                    <td>@item.OrderState</td>
+                                    <td>
+                                        @Html.ActionLink("Details", "Details", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 

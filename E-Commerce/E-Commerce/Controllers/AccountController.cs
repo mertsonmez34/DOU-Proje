@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using E_Commerce.Entity;
@@ -9,6 +11,8 @@ using E_Commerce.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+//using Microsoft.Owin.Security.DataProtection;
+//using Microsoft.AspNet.Identity.Owin;
 
 namespace E_Commerce.Controllers
 {
@@ -21,11 +25,15 @@ namespace E_Commerce.Controllers
 
         public AccountController()
         {
+            //var provider = new DpapiDataProtectionProvider("??");
+            
             var userStore = new UserStore<ApplicationUser>(new IdentityDataContext());
             _userManager = new UserManager<ApplicationUser>(userStore);
 
             var roleStore = new RoleStore<ApplicationRole>(new IdentityDataContext());
             _roleManager = new RoleManager<ApplicationRole>(roleStore);
+
+            //_userManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("SampleTokenName"));
 
         }
 
@@ -75,6 +83,8 @@ namespace E_Commerce.Controllers
 
             return View(entity);
         }
+
+
 
         // GET: Account
         public ActionResult Register()
@@ -128,13 +138,13 @@ namespace E_Commerce.Controllers
         public ActionResult Login(Login model, string ReturnUrl)
         {
             if (ModelState.IsValid)
-            {               
+            {
                 ApplicationUser u = null;
                 if (model.UserName.Contains('@'))
                 {
                     u = _userManager.FindByEmail(model.UserName);
                     model.UserName = u.UserName;
-                }          
+                }
 
                 //Login işlemleri
                 var user = _userManager.Find(model.UserName, model.Password);
@@ -165,6 +175,121 @@ namespace E_Commerce.Controllers
 
             return View(model);
         }
+
+        // GET: UserInfo
+        [Authorize]
+        public ActionResult UserInfo()
+        {
+            var currentUser = _userManager.FindById(User.Identity.GetUserId());
+            return View(currentUser);
+        }
+
+        // SET: UserInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UserInfo(ApplicationUser user)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.Identity.GetUserId());
+
+            if (ModelState.IsValid && currentUser != null)
+            {
+                if (!string.IsNullOrEmpty(user.Name))
+                    currentUser.Name = user.Name;
+                else
+                    ModelState.AddModelError("", "Email cannot be empty");
+
+                if (!string.IsNullOrEmpty(user.Surname))
+                    currentUser.Surname = user.Surname;
+                else
+                    ModelState.AddModelError("", "Email cannot be empty");
+
+                if (!string.IsNullOrEmpty(user.UserName))
+                    currentUser.UserName = user.UserName;
+                else
+                    ModelState.AddModelError("", "Email cannot be empty");
+
+                if (!string.IsNullOrEmpty(user.Email))
+                    currentUser.Email = user.Email;
+                else
+                    ModelState.AddModelError("", "Email cannot be empty");
+
+                if (!string.IsNullOrEmpty(user.Name) && !string.IsNullOrEmpty(user.Surname) && !string.IsNullOrEmpty(user.UserName) && !string.IsNullOrEmpty(user.Email))
+                {
+                    IdentityResult result = await _userManager.UpdateAsync(currentUser);
+                    return RedirectToAction("Index", "Account");
+                }
+            }
+            return View(user);
+        }
+
+
+        // GET: UserInfo
+        [Authorize]
+        public ActionResult PasswordChange()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> PasswordChange(string Password, string RePassword)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.Identity.GetUserId());
+            if (ModelState.IsValid && currentUser != null)
+            {
+
+                if (!string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(RePassword))
+                    if(Password == RePassword)
+                    {
+
+                        await _userManager.RemovePasswordAsync(currentUser.Id);
+
+                        var result = await _userManager.AddPasswordAsync(currentUser.Id, Password);
+ 
+                        //var token = await _userManager.GeneratePasswordResetTokenAsync(currentUser.Id.ToString());
+
+                        //var result = await _userManager.ResetPasswordAsync(currentUser.Id.ToString(), token, Password);
+
+                        if (result.Succeeded)
+                        {
+                            var authManager = HttpContext.GetOwinContext().Authentication;
+                            authManager.SignOut();
+
+                            return RedirectToAction("Login", "Account");
+                        }
+                        else
+                        {
+
+                            ModelState.AddModelError("", "Password Could not Change ");
+                        }
+                            
+                    }
+                    else
+                        ModelState.AddModelError("", "Passwords Does not Matched!");
+                else
+                    ModelState.AddModelError("", "Passwords cannot be empty");
+
+                
+               /*if (user.Password == user.RePassword)
+                {
+                    
+                    /*if (result.Succeeded)
+                    {
+                        var authManager = HttpContext.GetOwinContext().Authentication;
+                        authManager.SignOut();
+
+                        return RedirectToAction("Login", "Account");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("RegisterUserError", "Passwords Does not Matched!");
+                }*/
+            }
+            return View();
+        }
+
+
 
         public ActionResult Logout()
         {

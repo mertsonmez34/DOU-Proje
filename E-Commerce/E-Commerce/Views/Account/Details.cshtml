@@ -4,9 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<div class="container">
+<div class="container-fluid mt-5">
     <div class="row">
-        <div class="col-md-12">
+        @Html.Partial("_AccountList")
+        <div class="col-md-8">
 
             <h2>Order Detail Informations</h2>
             <hr />

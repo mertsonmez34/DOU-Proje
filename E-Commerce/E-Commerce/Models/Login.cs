@@ -9,11 +9,11 @@ namespace E_Commerce.Models
 {
     public class Login
     {
-        [Required]
+        [Required(ErrorMessage = "Please Enter User Name.")]
         [DisplayName("User Name")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please Enter Password.")]
         public string Password { get; set; }
 
         [DisplayName("Remember Me")]
