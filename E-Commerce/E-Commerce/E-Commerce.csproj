@@ -208,6 +208,7 @@
     <Content Include="theme\img\sarar-bisiklet-yaka-t-shirt-5748-basic-tisort-sarar-7503-57-B.jpg" />
     <Content Include="theme\img\shop.png.jpg" />
     <Content Include="theme\img\shop2.png" />
+    <Content Include="theme\js\ListFilter.js" />
     <Content Include="theme\js\Register.js" />
     <Content Include="theme\js\holder.min.js" />
     <Content Include="theme\product-details.html" />

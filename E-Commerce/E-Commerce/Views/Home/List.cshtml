@@ -1,9 +1,10 @@
 ﻿@using E_Commerce.Models;
 @model IEnumerable<ProductModel>
-@{ 
+@{
     ViewBag.Title = "List";
 
 }
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -17,36 +18,11 @@
                         <div class="filter-content">
                             <div class="card-body">
                                 <form>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <span class="form-check-label">
-                                            Mobile Phone
-                                        </span>
-                                    </label> <!-- form-check.// -->
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <span class="form-check-label">
-                                            Television
-                                        </span>
-                                    </label>  <!-- form-check.// -->
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <span class="form-check-label">
-                                            Computer
-                                        </span>
-                                    </label>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <span class="form-check-label">
-                                            Camera
-                                        </span>
-                                    </label>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <span class="form-check-label">
-                                            Tablet Computer
-                                        </span>
-                                    </label>
+                                    @foreach (var urunler in Model)
+                                    {
+                                        <input id="type" name="type" type="radio" value="@urunler.Type">
+                                        <label id="hiddenType" for="type">@urunler.Type</label><br>
+                                    }
                                 </form>
 
                             </div> <!-- card-body.// -->
@@ -59,79 +35,18 @@
                         </header>
                         <div class="filter-content">
                             <div class="card-body">
-                                <label class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                    <span class="form-check-label">
-                                        First hand items
-                                    </span>
-                                </label>
-                                <label class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                    <span class="form-check-label">
-                                        Brand new items
-                                    </span>
-                                </label>
-                                <label class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                    <span class="form-check-label">
-                                        Some other option
-                                    </span>
-                                </label>
+                                <form>
+                                    @foreach (var urunler in Model)
+                                    {
+                                        <input name="brand" type="radio" id="brand" value="@urunler.Brand">
+                                        <label id="hiddenBrand" for="brand">@urunler.Brand</label><br>
+                                    }
+                                </form>
                             </div> <!-- card-body.// -->
                         </div>
                     </article> <!-- card-group-item.// -->
                 </div> <!-- card.// -->
-
-
-
-
             </div> <!-- col.// -->
-            <div class="col-sm-12">
-                <p>Filter 2</p>
-
-
-                <div class="card">
-                    <article class="card-group-item">
-                        <header class="card-header"><h6 class="title">Similar category </h6></header>
-                        <div class="filter-content">
-                            <div class="list-group list-group-flush">
-                                <a href="#" class="list-group-item">Cras justo odio <span class="float-right badge badge-light round">142</span> </a>
-                                <a href="#" class="list-group-item">Dapibus ac facilisis  <span class="float-right badge badge-light round">3</span>  </a>
-                                <a href="#" class="list-group-item">Morbi leo risus <span class="float-right badge badge-light round">32</span>  </a>
-                                <a href="#" class="list-group-item">Another item <span class="float-right badge badge-light round">12</span>  </a>
-                            </div>  <!-- list-group .// -->
-                        </div>
-                    </article> <!-- card-group-item.// -->
-                    <article class="card-group-item">
-                        <header class="card-header"><h6 class="title">Color check</h6></header>
-                        <div class="filter-content">
-                            <div class="card-body">
-                                <label class="btn btn-danger">
-                                    <input class="" type="checkbox" name="myradio" value="">
-                                    <span class="form-check-label">Red</span>
-                                </label>
-                                <label class="btn btn-success">
-                                    <input class="" type="checkbox" name="myradio" value="">
-                                    <span class="form-check-label">Green</span>
-                                </label>
-                                <label class="btn btn-primary">
-                                    <input class="" type="checkbox" name="myradio" value="">
-                                    <span class="form-check-label">Blue</span>
-                                </label>
-                            </div> <!-- card-body.// -->
-                        </div>
-                    </article> <!-- card-group-item.// -->
-                </div> <!-- card.// -->
-
-
-
-            </div> <!-- col.// -->
-            <div class="col-sm-12">
-                <p>Filter  3</p>
-
-
-
-                <div class="card">
                     <article class="card-group-item">
                         <header class="card-header">
                             <h6 class="title">Range input </h6>
@@ -141,63 +56,42 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Min</label>
-                                        <input type="number" class="form-control" id="inputEmail4" placeholder="$0">
+                                        <input name="min" type="number" class="form-control" id="inputMin" placeholder="$0" value="0">
                                     </div>
                                     <div class="form-group col-md-6 text-right">
                                         <label>Max</label>
-                                        <input type="number" class="form-control" placeholder="$1,0000">
+                                        <input name="max" type="number" class="form-control" id="inputMax" placeholder="$1,0000" value="150000">
                                     </div>
                                 </div>
                             </div> <!-- card-body.// -->
                         </div>
-                    </article> <!-- card-group-item.// -->
-                    <article class="card-group-item">
-                        <header class="card-header">
-                            <h6 class="title">Selection </h6>
-                        </header>
-                        <div class="filter-content">
-                            <div class="card-body">
-                                <div class="custom-control custom-checkbox">
-                                    <span class="float-right badge badge-light round">52</span>
-                                    <input type="checkbox" class="custom-control-input" id="Check1">
-                                    <label class="custom-control-label" for="Check1">Samsung</label>
-                                </div> <!-- form-check.// -->
-
-                                <div class="custom-control custom-checkbox">
-                                    <span class="float-right badge badge-light round">132</span>
-                                    <input type="checkbox" class="custom-control-input" id="Check2">
-                                    <label class="custom-control-label" for="Check2">Black berry</label>
-                                </div> <!-- form-check.// -->
-
-                                <div class="custom-control custom-checkbox">
-                                    <span class="float-right badge badge-light round">17</span>
-                                    <input type="checkbox" class="custom-control-input" id="Check3">
-                                    <label class="custom-control-label" for="Check3">Samsung</label>
-                                </div> <!-- form-check.// -->
-
-                                <div class="custom-control custom-checkbox">
-                                    <span class="float-right badge badge-light round">7</span>
-                                    <input type="checkbox" class="custom-control-input" id="Check4">
-                                    <label class="custom-control-label" for="Check4">Other Brand</label>
-                                </div> <!-- form-check.// -->
-                            </div> <!-- card-body.// -->
-                        </div>
-                    </article> <!-- card-group-item.// -->
+                    </article>
+            <div class="col-sm-12">
+                <div>
+                    <div class="filter-content">
+                        <div class="card-body">
+                            <button type="button" id="btnFilter" class="btn btn-primary" onclick="typeFunction(), CalculateNumberOfProduct()">Filter</button>
+                            <button type="button" id="btnReload" class="btn btn-secondary mt-2" onclick="reloadPage()">Reload Of Filter Fields</button>
+                        </div> <!-- card-body.// -->
+                    </div>
                 </div> <!-- card.// -->
-
-
-
             </div> <!-- col.// -->
         </div>
+        @foreach (var urunler in Model)
+        {
+            <h5 id="typeOfCard" hidden="hidden">@urunler.Type</h5>
+            <h5 id="brandOfCard" hidden="hidden">@urunler.Brand</h5>
+        }
+       
         <div class="col-md-8">
             @if (Model.Count() > 0)
-            { 
+            {
 
-                <div class="alert alert-warning" role="alert">
+                <div class="row alert alert-warning" role="alert">
                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                    @Model.Count() product found
+                    <h6 id="counter">@Model.Count() product found</h6>
 
-                </div> 
+                </div>
             }
             else
             {
@@ -209,8 +103,11 @@
             }
 
 
-                @Html.Partial("_ProductList", Model)
-            
+            @Html.Partial("_ProductList", Model)
+
         </div>
     </div>
 </div>
+
+
+<script src="~/theme/js/ListFilter.js"></script>

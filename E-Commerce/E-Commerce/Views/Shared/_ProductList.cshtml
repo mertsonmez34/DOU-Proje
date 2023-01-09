@@ -6,7 +6,7 @@
 
     @foreach (var urun in Model)
     {
-        <div class="col-md-4 mb-3">
+        <div id="listCards" class="col-md-4 mb-3">
             <div class="card">
                 <img class="card-img-top" src="@urun.Image" alt="@urun.Name">
                 <div class="card-body">
@@ -18,10 +18,12 @@
                     </p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted product-price">
+                    <div class="row">
                         <i class="fa fa-try" aria-hidden="true"></i>
-                        @urun.Price
-                    </small>
+                        <div id="prodPrice">@urun.Price</div>
+                    </div>
+
+
                     <a href="/Home/Details/@urun.Id" class="btn btn-default btn-sm float-right">
                         <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                         Ürünü incele
@@ -29,5 +31,5 @@
                 </div>
             </div>
         </div>
-     }
+    }
 </div>

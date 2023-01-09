@@ -33,5 +33,6 @@ namespace E_Commerce.Entity
         public short Ranking { get; set; } //oylama
         public bool IsApproved { get; set; }
         public string Type { get; set; }
+        public string Brand { get; set; }
     }
 }

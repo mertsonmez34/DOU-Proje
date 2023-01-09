@@ -66,6 +66,8 @@ namespace E_Commerce.Controllers
                      //UnitInStock = i.UnitInStock,
                      Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                      CategoryId = i.CategoryId,
+                     Brand=i.Brand,
+                     Type=i.Type,
                  }).ToList();
             return View(urunler);
 
