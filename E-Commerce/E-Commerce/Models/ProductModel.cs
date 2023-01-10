@@ -25,6 +25,8 @@ namespace E_Commerce.Models
         public bool ProductAvailable { get; set; } // ürün var mı
         public int DiscountAvailable { get; set; } //indirim var mı
         public string Note { get; set; }
+
+        public virtual List<ReviewModel> Reviews { get; set; }
         public string Image { get; set; } // picture url
         public short Ranking { get; set; } //oylama
         public bool IsApproved { get; set; }
@@ -32,4 +34,6 @@ namespace E_Commerce.Models
         public string Brand { get; set; }
 
     }
+
+
 }

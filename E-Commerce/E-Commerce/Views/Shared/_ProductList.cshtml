@@ -1,35 +1,47 @@
 ﻿@using E_Commerce.Models;
+@using E_Commerce.Controllers;
 @model IEnumerable<ProductModel>
+@{
+    HomeController homeController = ((HomeController)this.ViewContext.Controller);
+}
 
-<div class="row">
+<div class="row mt-3">
 
-
-    @foreach (var urun in Model)
+    @foreach (var product in Model)
     {
+        int averageRanking = homeController.CalculateAverageRanking(product.Id);
+
         <div id="listCards" class="col-md-4 mb-3">
-            <div class="card">
-                <img class="card-img-top" src="@urun.Image" alt="@urun.Name">
+            <div class="card m-2" onclick="location.href='/Home/Details/@product.Id';" style="cursor: pointer; height:100%; border-radius:16px; overflow:hidden;">
+                <img class="card-img-top mt-3" src="@product.Image" alt="@product.Name" style="height: 180px; object-fit: scale-down;">
                 <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="/Home/Details/@urun.Id"> @urun.Name</a>
-                    </h4>
-                    <p class="card-text pt-2 description">
-                        @urun.Description
+                    <h4 class="card-title">@product.Name</h4>
+                    <p class="card-text description">
+                        @product.Description
                     </p>
-                </div>
-                <div class="card-footer">
-                    <div class="row">
-                        <i class="fa fa-try" aria-hidden="true"></i>
-                        <div id="prodPrice">@urun.Price</div>
-                    </div>
 
+                    @for (int i = 0; i < averageRanking; i++)
+                    {
+                        <i class="bi bi-star-fill" style="color:orange;"></i>}
+                    @for (int i = 0; i < 5 - averageRanking; i++)
+                    {
+                        <i class="bi bi-star" style="color:orange;"></i>
+                    }
 
-                    <a href="/Home/Details/@urun.Id" class="btn btn-default btn-sm float-right">
-                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                        Ürünü incele
-                    </a>
+                    @if (product.Reviews.Count() == 0)
+                    {
+                        <span class="badge badge-warning">@homeController.GetReviewCountString(product.Id)</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-success">@homeController.GetReviewCountString(product.Id)</span>
+                    }
+
+                    <div>@product.Price.ToString("c")</div>
+
                 </div>
             </div>
         </div>
-    }
+     }
 </div>
+

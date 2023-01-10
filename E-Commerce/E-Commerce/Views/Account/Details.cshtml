@@ -2,6 +2,7 @@
 @model E_Commerce.Models.OrderDetailsModel
 @{
     ViewBag.Title = "Details";
+
 }
 
 <div class="container-fluid mt-5">
@@ -18,11 +19,15 @@
                 <dd class="col-sm-9">
                     @if (Model.OrderState == EnumOrderState.Waiting)
                     {
-                        <span class="badge-danger">Waiting for approval</span>
+                        <span class="badge-warning">Waiting for Approval</span>
                     }
                     else if (Model.OrderState == EnumOrderState.Completed)
                     {
                         <span class="badge-success">Order Completed</span>
+                    }
+                    else if (Model.OrderState == EnumOrderState.Canceled)
+                    {
+                        <span class="badge-danger">Order Canceled</span>
                     }
                 </dd>
 
@@ -89,6 +94,17 @@
                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                                             Product Details
                                         </a>
+
+                                        
+                                       
+                                       
+                                        <a href="/Review/Create/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                            Write Comment
+                                        </a>
+
+
+
                                     </td>
                                 </tr>
                             }

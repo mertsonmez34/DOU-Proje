@@ -10,7 +10,7 @@ namespace E_Commerce.Entity
     {
         [Display(Name = "Awaiting Approval")]
         Waiting,
-        [Display(Name = "Completed")]
-        Completed
+        Completed,
+        Canceled
     }
 }

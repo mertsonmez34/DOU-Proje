@@ -4,78 +4,89 @@
     ViewBag.Title = "title";
 }
 
-<section>
-    <div class="form-horizontal">
-        <div class="container pb-5">
-            <div class="form sign-in-form">
-                <div class="wrapper ">
+<section class="hv-100" style="background-color: paleturquoise;">
+    <div class="container py-5 h-100 v-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="https://img.freepik.com/free-vector/seasonal-sale-discounts-presents-purchase-visiting-boutiques-luxury-shopping-price-reduction-promotional-coupons-special-holiday-offers-vector-isolated-concept-metaphor-illustration_335657-2766.jpg?w=2000"
+                                 alt="Register form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
 
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                        <h1>Register for Customer</h1>
-                        <p>Please, provide all the correct info to create an account</p>
-
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-
-
-                        @Html.EditorFor(model => model.SurName, new { htmlAttributes = new { @class = "form-control", placeholder = "Sur Name" } })
-                        @Html.ValidationMessageFor(model => model.SurName, "", new { @class = "text-danger" })
+                                    <h5 class="fw-normal mb-1 pb-1" style="letter-spacing: 1px;">Register Here</h5>
 
 
-                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "User Name" } })
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                    <div class="form-outline mb-1">
+
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="form-outline mb-1">
+
+                                        @Html.EditorFor(model => model.SurName, new { htmlAttributes = new { @class = "form-control", placeholder = "Surname" } })
+                                        @Html.ValidationMessageFor(model => model.SurName, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="form-outline mb-1">
+
+                                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "UserName" } })
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                                    </div>
+
+                                    <div class="form-outline mb-1">
+
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "E-mail" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="form-outline mb-1">
+
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
 
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "E-mail" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-outline mb-1">
 
+                                        @Html.EditorFor(model => model.RePassword, new { htmlAttributes = new { @class = "form-control", placeholder = "RePassword" } })
+                                        @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
 
-                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
 
+                                    <div class="form-row ml-0 mr-0">
+                                        @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control", style = "width: 49%; margin-right: 1%", placeholder = "Height" } })
+                                        @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", style = "width: 49%; margin-left: 1%", placeholder = "Weight" } })
+                                    </div>
 
-                        @Html.EditorFor(model => model.RePassword, new { htmlAttributes = new { @class = "form-control", placeholder = "RePassword" } })
-                        @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                                    <div class="form-check-inline mt-2 mb-3">
+                                        @Html.RadioButtonFor(model => model.Sex, true, new { htmlAttributes = new { @class = "form-check-input w-100 h-100 mb-0 mr-2" } })
+                                        <label class="form-check-label ml-2 mr-4" for="exampleRadios1">
+                                            Male
+                                        </label>
 
-                        <div class="container">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary">Register</button>
+                                        @Html.RadioButtonFor(model => model.Sex, false, new { htmlAttributes = new { @class = "form-check-input w-100 h-100 mb-0 mr-2 ml-5" } })
+                                        <label class="form-check-label ml-2" for="exampleRadios2">
+                                            Female
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-primary">Register</button>
+                                    </div>
+                                }
                             </div>
                         </div>
-
-                    }
-                </div>
-            </div>
-            <div class="form sign-up-form active">
-                <div class="wrapper">
-                    <form action="#">
-                        <h1>Register for Business</h1>
-                        <p>Please, provide all the correct info to create an account</p>
-                        <input type="text" placeholder="Full Name">
-                        <input type="email" placeholder="Email">
-                        <input type="password" placeholder="password">
-                        <input type="password" placeholder="password">
-                        <button>Register</button>
-                    </form>
-                </div>
-            </div>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-left">
-                        <h1>Create Account for Business</h1>
-                        <p>or</p>
-                        <button id="signInButton">Create Account for Customer</button>
-                    </div>
-                    <div class="overlay-right">
-                        <h1>Create Account for Customer</h1>
-                        <p>or</p>
-                        <button id="signUpButton">Create Account for Business</button>
                     </div>
                 </div>
             </div>
@@ -84,11 +95,6 @@
 </section>
 
 
-
-
 <script src="~/Scripts/jquery-1.9.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
-
-

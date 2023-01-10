@@ -34,5 +34,7 @@ namespace E_Commerce.Entity
         public bool IsApproved { get; set; }
         public string Type { get; set; }
         public string Brand { get; set; }
+
+        public virtual List<Review> Reviews { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace E_Commerce.Controllers
         public AccountController()
         {
             //var provider = new DpapiDataProtectionProvider("??");
-            
+
             var userStore = new UserStore<ApplicationUser>(new IdentityDataContext());
             _userManager = new UserManager<ApplicationUser>(userStore);
 
@@ -54,6 +54,7 @@ namespace E_Commerce.Controllers
 
             return View(orders);
         }
+
         [Authorize]
         public ActionResult Details(int id)
         {
@@ -196,25 +197,30 @@ namespace E_Commerce.Controllers
                 if (!string.IsNullOrEmpty(user.Name))
                     currentUser.Name = user.Name;
                 else
-                    ModelState.AddModelError("", "Email cannot be empty");
+                    ModelState.AddModelError("", "Name cannot be empty");
 
                 if (!string.IsNullOrEmpty(user.Surname))
                     currentUser.Surname = user.Surname;
                 else
-                    ModelState.AddModelError("", "Email cannot be empty");
+                    ModelState.AddModelError("", "Surname cannot be empty");
 
                 if (!string.IsNullOrEmpty(user.UserName))
                     currentUser.UserName = user.UserName;
                 else
-                    ModelState.AddModelError("", "Email cannot be empty");
+                    ModelState.AddModelError("", "UserName cannot be empty");
 
                 if (!string.IsNullOrEmpty(user.Email))
                     currentUser.Email = user.Email;
                 else
                     ModelState.AddModelError("", "Email cannot be empty");
 
+                currentUser.Height = user.Height;
+                currentUser.Weight = user.Weight;
+                currentUser.Sex = user.Sex;
+
                 if (!string.IsNullOrEmpty(user.Name) && !string.IsNullOrEmpty(user.Surname) && !string.IsNullOrEmpty(user.UserName) && !string.IsNullOrEmpty(user.Email))
                 {
+
                     IdentityResult result = await _userManager.UpdateAsync(currentUser);
                     return RedirectToAction("Index", "Account");
                 }
@@ -239,13 +245,13 @@ namespace E_Commerce.Controllers
             {
 
                 if (!string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(RePassword))
-                    if(Password == RePassword)
+                    if (Password == RePassword)
                     {
 
                         await _userManager.RemovePasswordAsync(currentUser.Id);
 
                         var result = await _userManager.AddPasswordAsync(currentUser.Id, Password);
- 
+
                         //var token = await _userManager.GeneratePasswordResetTokenAsync(currentUser.Id.ToString());
 
                         //var result = await _userManager.ResetPasswordAsync(currentUser.Id.ToString(), token, Password);
@@ -262,29 +268,29 @@ namespace E_Commerce.Controllers
 
                             ModelState.AddModelError("", "Password Could not Change ");
                         }
-                            
+
                     }
                     else
                         ModelState.AddModelError("", "Passwords Does not Matched!");
                 else
                     ModelState.AddModelError("", "Passwords cannot be empty");
 
-                
-               /*if (user.Password == user.RePassword)
-                {
-                    
-                    /*if (result.Succeeded)
-                    {
-                        var authManager = HttpContext.GetOwinContext().Authentication;
-                        authManager.SignOut();
 
-                        return RedirectToAction("Login", "Account");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("RegisterUserError", "Passwords Does not Matched!");
-                }*/
+                /*if (user.Password == user.RePassword)
+                 {
+
+                     /*if (result.Succeeded)
+                     {
+                         var authManager = HttpContext.GetOwinContext().Authentication;
+                         authManager.SignOut();
+
+                         return RedirectToAction("Login", "Account");
+                     }
+                 }
+                 else
+                 {
+                     ModelState.AddModelError("RegisterUserError", "Passwords Does not Matched!");
+                 }*/
             }
             return View();
         }
@@ -298,6 +304,52 @@ namespace E_Commerce.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+
+
+        [Authorize]
+        public string GetMySizeResult(ApplicationUser user)
+        {
+
+            if (user != null && user.Height != null && user.Weight != null)
+            {
+                string size;
+                float height = (float)user.Height;
+                float weight = (float)user.Weight;
+
+                float divided = height / 100;
+
+                var bmi = weight / (divided * divided);
+
+                if (bmi < 18.5)
+                {
+                    size = "S";
+                }
+                else if (bmi < 25)
+                {
+                    size = "M";
+                }
+                else if (bmi < 30)
+                {
+                    size = "L";
+                }
+                else if (bmi < 35)
+                {
+                    size = "XL";
+                }
+                else if (bmi <= 40)
+                {
+                    size = "XXL";
+                }
+                else
+                {
+                    size = null;
+                }
+                return size;
+            }
+            return null;
+        }
+
 
     }
 }
