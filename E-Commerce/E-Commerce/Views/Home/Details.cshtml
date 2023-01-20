@@ -76,7 +76,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12 ml-2">
-                        <h4 id="productPrice">@Model.Price.ToString("c")</h4>
+                        <h4 id="prodrice">@Model.Price.ToString("c")</h4>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -84,22 +84,27 @@
                         @using (Html.BeginForm("AddToCart", "Cart"))
                         {
                             @Html.HiddenFor(i => i.Id)
-                            <button type="submit" class="btn btn-success">
+                            <button class="btn btn-success" type="submit" id="addToCard">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 Add To Cart
                             </button>
-                            }
+                        }
+                        @*<button class="btn btn-success" id="addToCard" type="button">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            Add To Cart
+                        </button>*@
 
                         @*@if (Model.UnitInStock)
-                            {
-                                <button class="btn btn-success"><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>
-                            }
-                            else
-                            {
-                                <button class="btn btn-success" disabled><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>
-                            }*@
+        {
+            <button class="btn btn-success"><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>
+        }
+        else
+        {
+            <button class="btn btn-success" disabled><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>
+        }*@
                     </div>
                 </div>
+                <div class="row">@Html.Partial("_GetSelectedOption",Model)</div>
             </div>
         </div>
     </div>
@@ -175,5 +180,7 @@
         </li>
         <hr />
     }
-
+    <div id="prodId" hidden="hidden">@Model.Id</div>
 </div>
+<script type="text/javascript" src="~/Scripts/jquery3.6.3min.js"></script>
+<script type="text/javascript" src="~/theme/js/SelectedOption.js"></script>

@@ -17,7 +17,7 @@ namespace E_Commerce.Models
         public int SupplierID { get; set; }
         public int CategoryId { get; set; }
         public double Price { get; set; }
-        public string AvailableSize { get; set; } // stokta olan bedenler
+        public string ChosenOption { get; set; }
         public string AvailableColors { get; set; }  // stokta olan renkler
         public int Discount { get; set; } //indirim
         public int Stock { get; set; } // stoktaki adet

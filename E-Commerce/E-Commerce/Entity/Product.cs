@@ -21,7 +21,7 @@ namespace E_Commerce.Entity
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public double Price { get; set; }
-        public string AvailableSize { get; set; } // stokta olan bedenler
+        public string ChosenOption { get; set; } 
         public string AvailableColors { get; set; }  // stokta olan renkler
         public int Discount { get; set; } //indirim
         public int Stock { get; set; } // stoktaki adet

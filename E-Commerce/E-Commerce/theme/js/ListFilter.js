@@ -4,16 +4,16 @@ var cards = [];
 const unique = (value, index, self) => {
     return self.indexOf(value) === index
 }
-const prices = document.querySelectorAll("#prodPrice");
+const prices = document.querySelectorAll("#priceOfProduct");
 const minPrice = document.querySelectorAll('input[name="min"]');
 const maxPrice = document.querySelectorAll('input[name="max"]');
 const card = document.querySelectorAll("#listCards");
 const type = document.querySelectorAll('input[name="type"]');
 const brand = document.querySelectorAll('input[name="brand"]');
 const hiddenType = document.querySelectorAll("#hiddenType");
+const brandOfCards = document.querySelectorAll("#brandOfCard");
 const hiddenBrand = document.querySelectorAll("#hiddenBrand");
 const typeOfCards = document.querySelectorAll("#typeOfCard");
-const brandOfCards = document.querySelectorAll("#brandOfCard");
 const counter = document.getElementById("counter");
 
 ///////////////////////////////////////////////////////// Type Seçimindeki Label kısmının çoklamasını önler
