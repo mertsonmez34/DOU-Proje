@@ -24,6 +24,7 @@ namespace E_Commerce.Controllers
                     Name = i.Name.Length > 50 ? i.Name.Substring(0, 47) + "..." : i.Name,
                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
                     Price = i.Price,
+                    ProductAvailable=i.ProductAvailable,
                     Stock = i.Stock,
                     Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                     CategoryId = i.CategoryId,
@@ -122,6 +123,7 @@ namespace E_Commerce.Controllers
                 Price = i.Price,
                 Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                 CategoryId = i.CategoryId,
+                ProductAvailable=i.ProductAvailable,
                 Brand = i.Brand,
                 Type = i.Type,
                 Reviews = i.Reviews.Select(a => new ReviewModel()

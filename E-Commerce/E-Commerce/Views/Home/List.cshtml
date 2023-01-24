@@ -10,8 +10,9 @@
         <div class="col-md-2">
             <div class="col-sm-12">
                 <p>Filtering</p>
-                <div class="card">
-                    <article class="card-group-item">
+                <div class="card h-100">
+
+                    <article class="card-group-item mh-25">
                         <header class="card-header">
                             <h6 class="title">Types </h6>
                         </header>
@@ -21,7 +22,7 @@
                                     @foreach (var urunler in Model)
                                     {
                                         <input id="type" name="type" type="radio" value="@urunler.Type">
-                                        <label id="hiddenType" for="type">@urunler.Type</label><br>
+                                        <label id="hiddenType" for="type">@urunler.Type</label><br id="typeBr">
                                     }
                                 </form>
 
@@ -31,28 +32,28 @@
 
                     <article class="card-group-item">
                         <header class="card-header">
-                            <h6 class="title">Choose type </h6>
+                            <h6 class="title">Brand </h6>
                         </header>
                         <div class="filter-content">
-                            <div class="card-body">
+                            <div class="card-body ">
                                 <form>
                                     @foreach (var urunler in Model)
                                     {
                                         <input name="brand" type="radio" id="brand" value="@urunler.Brand">
-                                        <label id="hiddenBrand" for="brand">@urunler.Brand</label><br>
+                                        <label id="hiddenBrand" for="brand">@urunler.Brand</label><br id="brandBr">
                                     }
                                 </form>
                             </div> <!-- card-body.// -->
                         </div>
                     </article> <!-- card-group-item.// -->
-                </div> <!-- card.// -->
-            </div> <!-- col.// -->
+
+
                     <article class="card-group-item">
                         <header class="card-header">
                             <h6 class="title">Range input </h6>
                         </header>
-                        <div class="filter-content">
-                            <div class="card-body">
+                        <div class="filter-content h-20 mt-0">
+                            <div class="card-body mt-0">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Min</label>
@@ -66,16 +67,20 @@
                             </div> <!-- card-body.// -->
                         </div>
                     </article>
-            <div class="col-sm-12">
-                <div>
-                    <div class="filter-content">
-                        <div class="card-body">
-                            <button type="button" id="btnFilter" class="btn btn-primary" onclick="typeFunction(), CalculateNumberOfProduct()">Filter</button>
-                            <button type="button" id="btnReload" class="btn btn-secondary mt-2" onclick="reloadPage()">Reload Of Filter Fields</button>
-                        </div> <!-- card-body.// -->
-                    </div>
-                </div> <!-- card.// -->
-            </div> <!-- col.// -->
+
+                    <div class="col-sm-12 mt-2">
+                        <div>
+                            <div class="filter-content mh-25 mt-0">
+                                <div class="card-body">
+                                    <button type="button" id="btnFilter" class="btn btn-primary" onclick="typeFunction(), CalculateNumberOfProduct()">Filter</button>
+                                    <button type="button" id="btnReload" class="btn btn-secondary mt-2" onclick="reloadPage()">Clear Filter</button>
+                                </div> <!-- card-body.// -->
+                            </div>
+                        </div> <!-- card.// -->
+                    </div> <!-- col.// -->
+                </div>
+
+            </div>
         </div>
         @foreach (var urunler in Model)
         {
@@ -83,7 +88,7 @@
             <h5 id="brandOfCard" hidden="hidden">@urunler.Brand</h5>
             <h5 id="priceProd" hidden="hidden">@urunler.Price</h5>
         }
-       
+
         <div class="col-md-8">
             @if (Model.Count() > 0)
             {
