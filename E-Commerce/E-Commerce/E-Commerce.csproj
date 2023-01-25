@@ -269,6 +269,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery3.6.3min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Service\SearchProduct.asmx" />
     <Content Include="Service\UpdateOption.asmx" />
     <Content Include="theme\css\Register.css" />
     <Content Include="theme\css\style.css" />
@@ -334,6 +335,10 @@
     <Compile Include="Models\ShippingDetails.cs" />
     <Compile Include="Models\UserOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\SearchProduct.asmx.cs">
+      <DependentUpon>SearchProduct.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Service\UpdateOption.asmx.cs">
       <DependentUpon>UpdateOption.asmx</DependentUpon>
       <SubType>Component</SubType>

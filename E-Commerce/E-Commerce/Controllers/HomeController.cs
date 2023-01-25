@@ -72,7 +72,6 @@ namespace E_Commerce.Controllers
                      Name = i.Name,
                      Description = i.Description.Length > 50 ? i.Description.Substring(0, 150) + "..." : i.Description,
                      Price = i.Price,
-                     //UnitInStock = i.UnitInStock,
                      Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                      CategoryId = i.CategoryId,
                      Brand = i.Brand,

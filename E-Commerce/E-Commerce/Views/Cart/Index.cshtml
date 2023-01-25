@@ -17,6 +17,7 @@
                         <tr>
                             <th></th>
                             <th>Product Name</th>
+                            <th>Chosen Option</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Sub Total</th>
@@ -34,6 +35,9 @@
                                 @item.Product.Name
                             </td>
                             <td>
+                                @item.Product.ChosenOption
+                            </td>
+                            <td>
                                 @item.Quantity
                             </td>
                             <td>
@@ -47,17 +51,17 @@
                                 {
                                     @Html.Hidden("Id", item.Product.Id)
                                     <button type="submit" class="btn btn-danger">
-                                          <i class="fa fa-trash"></i>
-                                          Delete
+                                        <i class="fa fa-trash"></i>
+                                        Delete
                                     </button>
-                                 }
+                                }
                             </td>
                         </tr>
                         }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5"></td>
+                            <td colspan="6"></td>
                             <td>
                                 @Model.Total().ToString("c")
                             </td>

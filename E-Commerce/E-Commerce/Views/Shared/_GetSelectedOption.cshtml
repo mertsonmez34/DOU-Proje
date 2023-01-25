@@ -5,7 +5,7 @@
     //Layout = "/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    @if (Model.Type == "Mobile Phone" || Model.Type == "Tablet Computer")
+    @if (Model.Type == "Telefon" || Model.Type == "Tablet")
     {
         <h6 class="mt-2">The Color Of Product:</h6>
         <div class="row mt-1 ml-2">
@@ -19,7 +19,7 @@
             <label class=" form-check-label ml-1 mr-2" for="option3">Red</label>
         </div>
     }
-    @if (Model.Type == "Jeans" || Model.Type == "Clothes")
+    @if (Model.Type == "Pantolon" || Model.Type == "Elbise")
     {
         <h5 class="mt-2">The Size Of Product:</h5>
         <div class="row mt-2 ml-2">
@@ -45,7 +45,7 @@
             <label class=" form-check-label ml-1 mr-2 " for="option3">40</label>
         </div>
     }
-    @if (Model.Type == "Tshirt")
+    @if (Model.Type == "T-Shirt")
     {
         <h5 class="mt-2">The Size Of Product:</h5>
         <div class="row row mt-2 ml-2">
@@ -64,7 +64,7 @@
         </div>
 
     }
-    @if (Model.Type == "Shoes")
+    @if (Model.Type == "Ayakkabı")
     {
         <h5 class="mt-2">The Size Of Product:</h5>
         <div class="row row mt-2 ml-2">

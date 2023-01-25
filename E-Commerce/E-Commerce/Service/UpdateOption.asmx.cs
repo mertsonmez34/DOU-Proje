@@ -11,7 +11,13 @@ using System.Data.SqlClient;
 namespace E_Commerce.Service
 {
     /// <summary>
-    /// Summary description for UpdateOption
+    /// update sp
+    /*      Create procedure SpUpdateOption
+               @Id int,
+               @ChosenOption nvarchar(15),
+               AS
+               UPDATE Products SET ChosenOption=@ChosenOption
+             HERE Id = @Id; */
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]

@@ -32,5 +32,6 @@ namespace E_Commerce.Models
         public string Image { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
+        public string ChosenOption { get; set; }
     }
 }

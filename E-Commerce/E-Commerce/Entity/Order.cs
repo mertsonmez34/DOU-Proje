@@ -37,6 +37,8 @@ namespace E_Commerce.Entity
         public double Price { get; set; }
 
         public int ProductId { get; set; }
+
+        public string ChosenOption { get; set; }
         public virtual Product Product { get; set; }
     }
 }

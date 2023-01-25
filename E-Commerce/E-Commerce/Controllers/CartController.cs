@@ -114,6 +114,7 @@ namespace E_Commerce.Controllers
                 orderline.Quantity = pr.Quantity;
                 orderline.Price = pr.Quantity * pr.Product.Price;
                 orderline.ProductId = pr.Product.Id;
+                orderline.ChosenOption = pr.Product.ChosenOption;
 
                 order.Orderlines.Add(orderline);
             }
