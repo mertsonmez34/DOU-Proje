@@ -1,4 +1,4 @@
-﻿@model E_Commerce.Entity.Review
+﻿@model E_Commerce.Models.ReviewModel
 
 @{
     ViewBag.Title = "Create";
@@ -32,7 +32,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control", style="height:100px" } })
                     @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -44,8 +44,4 @@
             </div>
         </div>
     }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 </div>

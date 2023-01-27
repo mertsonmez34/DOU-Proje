@@ -16,12 +16,12 @@ namespace E_Commerce.Entity
         public EnumOrderState OrderState { get; set; }
 
         public string Username { get; set; }
-        public string AdresBasligi { get; set; }
-        public string Adres { get; set; }
-        public string Sehir { get; set; }
-        public string Semt { get; set; }
-        public string Mahalle { get; set; }
-        public string PostaKodu { get; set; }
+        public string AddressName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string District { get; set; }
+        public string Neighborhood { get; set; }
+        public string PostalCode { get; set; }
         public virtual List<OrderLine> Orderlines { get; set; }
     }
 

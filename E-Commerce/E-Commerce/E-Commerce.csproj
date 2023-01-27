@@ -270,23 +270,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Service\SearchProduct.asmx" />
     <Content Include="Service\UpdateOption.asmx" />
-    <Content Include="theme\css\Register.css" />
     <Content Include="theme\css\style.css" />
     <Content Include="theme\home.html" />
-    <Content Include="theme\img\1-1663936237047.jpg" />
-    <Content Include="theme\img\IMG-20221221-WA0001.jpg" />
-    <Content Include="theme\img\IMG-20221221-WA0002.jpg" />
-    <Content Include="theme\img\iphone-kurumsal-akilli-telefon-kampanyasi_279x209.jpg" />
-    <Content Include="theme\img\jumbotron4.jpg" />
-    <Content Include="theme\img\jumbotron5.jpg" />
-    <Content Include="theme\img\jumbotronBackground1.jpg" />
-    <Content Include="theme\img\jumbotronBackGround2.jpg" />
-    <Content Include="theme\img\jumbotronBG3.jpg" />
     <Content Include="theme\img\logo.png" />
-    <Content Include="theme\img\analogo.png" />
-    <Content Include="theme\img\sarar-bisiklet-yaka-t-shirt-5748-basic-tisort-sarar-7503-57-B.jpg" />
-    <Content Include="theme\img\shop.png.jpg" />
-    <Content Include="theme\img\shop2.png" />
+    <Content Include="theme\img\Slider_1.jpeg" />
+    <Content Include="theme\img\Slider_2.jpeg" />
+    <Content Include="theme\img\Slider_3.jpeg" />
     <Content Include="theme\img\user-icon.png" />
     <Content Include="theme\js\ListFilter.js" />
     <Content Include="theme\js\holder.min.js" />
@@ -313,10 +302,7 @@
     <Compile Include="Entity\DataInitializer.cs" />
     <Compile Include="Entity\OrderDetail.cs" />
     <Compile Include="Entity\Order.cs" />
-    <Compile Include="Entity\Payment.cs" />
     <Compile Include="Entity\Product.cs" />
-    <Compile Include="Entity\Shipper.cs" />
-    <Compile Include="Entity\Supplier.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -326,6 +312,7 @@
     <Compile Include="Identity\IdentityInitializer.cs" />
     <Compile Include="Models\AdminOrderModel.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CreditCardModel.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\OrderDetailsModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
@@ -356,8 +343,6 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Category\Delete.cshtml" />
-    <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />

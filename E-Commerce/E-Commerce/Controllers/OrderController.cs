@@ -40,12 +40,12 @@ namespace E_Commerce.Controllers
                     Total = i.Total,
                     OrderDate = i.OrderDate,
                     OrderState = i.OrderState,
-                    AdresBasligi = i.AdresBasligi,
-                    Adres = i.Adres,
-                    Sehir = i.Sehir,
-                    Semt = i.Semt,
-                    Mahalle = i.Mahalle,
-                    PostaKodu = i.PostaKodu,
+                    AddressName = i.AddressName,
+                    Address = i.Address,
+                    City = i.City,
+                    District = i.District,
+                    Neighborhood = i.Neighborhood,
+                    PostalCode = i.PostalCode,
                     Orderlines = i.Orderlines.Select(a => new OrderLineModel()
                     {
                         ProductId = a.ProductId,

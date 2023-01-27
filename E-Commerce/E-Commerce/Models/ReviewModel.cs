@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Commerce.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,11 @@ namespace E_Commerce.Models
 {
     public class ReviewModel
     {
+        public int ID { get; set; }
+
         public int ProductID { get; set; }
+
+        public Product Product { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -21,7 +26,8 @@ namespace E_Commerce.Models
 
         [DisplayName("Write your comment")]
         [Required(ErrorMessage = "Comment can not be empty")]
-        [StringLength(150, ErrorMessage = "You reached maximum character limit")]
+        [StringLength(maximumLength: 150, ErrorMessage = "You reached maximum character limit")]
+        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
     }
 }

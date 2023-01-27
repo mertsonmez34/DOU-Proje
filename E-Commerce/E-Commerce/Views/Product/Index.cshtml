@@ -1,4 +1,4 @@
-﻿@model IEnumerable<E_Commerce.Entity.Product>
+﻿@model IEnumerable<E_Commerce.Models.ProductModel>
 
 @{
     ViewBag.Title = "Index";
@@ -8,12 +8,13 @@
 
 <div class="container pb-5">
 
-    <h2>Yeni Ürün</h2>
+    <div class="d-flex justify-content-between">
+        <h2>Products</h2>
+        @Html.ActionLink("New Product", "Create", null, new { @class = "btn btn-primary" })
+        
+    </div>
     <hr />
-    <p>
-        @Html.ActionLink("Yeni Ürün", "Create", null, new { @class = "btn btn-primary" })
-    </p>
-    <hr />
+
     <table class="table table-bordered table-striped">
         <tr>
             <th>
@@ -31,7 +32,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.IsApproved)
             </th>
-            <th style="width: 140px;"></th>
+            <th style="width: 160px;"></th>
         </tr>
 
         @foreach (var item in Model)
@@ -51,14 +52,14 @@
                     {
                         <label class="badge badge-success">
                             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                            Evet
+                            Yes
                         </label>
                     }
                     else
                     {
                         <label class="badge badge-danger">
                             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                            Hayır
+                            No
                         </label>
                     }
                 </td>
@@ -67,20 +68,20 @@
                     {
                         <label class="badge badge-success">
                             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                            Evet
+                            Yes
                         </label>
                     }
                     else
                     {
                         <label class="badge badge-danger">
                             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                            Hayır
+                            No
                         </label>
                     }
                 </td>
                 <td>
-                    @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
-                    @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("Update", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             </tr>
         }

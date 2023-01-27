@@ -25,15 +25,11 @@ namespace E_Commerce.Controllers
 
         public AccountController()
         {
-            //var provider = new DpapiDataProtectionProvider("??");
-
             var userStore = new UserStore<ApplicationUser>(new IdentityDataContext());
             _userManager = new UserManager<ApplicationUser>(userStore);
 
             var roleStore = new RoleStore<ApplicationRole>(new IdentityDataContext());
             _roleManager = new RoleManager<ApplicationRole>(roleStore);
-
-            //_userManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("SampleTokenName"));
 
         }
 
@@ -66,12 +62,12 @@ namespace E_Commerce.Controllers
                     Total = i.Total,
                     OrderDate = i.OrderDate,
                     OrderState = i.OrderState,
-                    AdresBasligi = i.AdresBasligi,
-                    Adres = i.Adres,
-                    Sehir = i.Sehir,
-                    Semt = i.Semt,
-                    Mahalle = i.Mahalle,
-                    PostaKodu = i.PostaKodu,
+                    AddressName = i.AddressName,
+                    Address = i.Address,
+                    City = i.City,
+                    District = i.District,
+                    Neighborhood = i.Neighborhood,
+                    PostalCode = i.PostalCode,
                     Orderlines = i.Orderlines.Select(a => new OrderLineModel()
                     {
                         ProductId = a.ProductId,

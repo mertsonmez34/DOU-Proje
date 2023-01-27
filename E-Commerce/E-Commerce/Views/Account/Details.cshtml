@@ -1,4 +1,5 @@
 ﻿@using E_Commerce.Entity
+@using System.Globalization;
 @model E_Commerce.Models.OrderDetailsModel
 @{
     ViewBag.Title = "Details";
@@ -47,15 +48,15 @@
                 <dd class="col-sm-9">@Model.OrderDate</dd>
 
 
-                <dt class="col-sm-3">Adres</dt>
+                <dt class="col-sm-3">Address</dt>
                 <dd class="col-sm-9">
-                    @Model.AdresBasligi
+                    @Model.AddressName
                     <hr />
-                    @Model.Adres
+                    @Model.Address
                     <br />
-                    @Model.Sehir - @Model.Semt - @Model.Mahalle
+                    @Model.City - @Model.District - @Model.Neighborhood
                     <br />
-                    @Model.PostaKodu
+                    @Model.PostalCode
                 </dd>
 
                 <dt class="col-sm-3">Products</dt>
@@ -86,18 +87,14 @@
                                         @item.Quantity
                                     </td>
                                     <td>
-                                        <i class="fa fa-try" aria-hidden="true"></i>
-                                        @item.Price
+                                        @item.Price.ToString("c", new CultureInfo("tr-TR"))
                                     </td>
                                     <td>
                                         <a href="/Home/Details/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">
                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                                             Product Details
                                         </a>
-
-                                        
-                                       
-                                       
+                                        <div style="height:10px"></div>
                                         <a href="/Review/Create/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">
                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                                             Write Comment

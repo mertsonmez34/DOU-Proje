@@ -1,4 +1,4 @@
-﻿@using E_Commerce.Entity
+﻿@using System.Globalization;
 @model E_Commerce.Models.OrderDetailsModel
 @{
     ViewBag.Title = "Details";
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <h2>Sipariş Detay Bilgileri</h2>
+            <h2>Order Detail Informations</h2>
             <hr />
             @if (TempData["message"] != null)
             {
@@ -33,8 +33,8 @@
                         @Html.HiddenFor(i => i.OrderId)
 
                         <dl class="row">
-                            <dt class="col-sm-8">
-                                @Html.EnumDropDownListFor(i => i.OrderState, new { @class = "form-control" })
+                            <dt class="col-md-8">
+                                @Html.EnumDropDownListFor(i => i.OrderState, new { @class = "form-control", style="padding:5px" })
                             </dt>
                             <dd class="col-sm-4">
                                 <button type="submit" class="btn btn-primary">Update</button>
@@ -52,23 +52,23 @@
 
                 <dt class="col-sm-3">Total</dt>
                 <dd class="col-sm-9">
-                    <i class="fa fa-try" aria-hidden="true"></i>
-                    @Model.Total
+                    @Model.Total.ToString("c", new CultureInfo("tr-TR"))
+
                 </dd>
 
                 <dt class="col-sm-3">Order Date</dt>
                 <dd class="col-sm-9">@Model.OrderDate</dd>
 
 
-                <dt class="col-sm-3">Adres</dt>
+                <dt class="col-sm-3">Address</dt>
                 <dd class="col-sm-9">
-                    @Model.AdresBasligi
+                    @Model.AddressName
                     <hr />
-                    @Model.Adres
+                    @Model.Address
                     <br />
-                    @Model.Sehir - @Model.Semt - @Model.Mahalle
+                    @Model.City - @Model.District - @Model.Neighborhood
                     <br />
-                    @Model.PostaKodu
+                    @Model.PostalCode
                 </dd>
 
                 <dt class="col-sm-3">Products</dt>
@@ -99,8 +99,7 @@
                                         @item.Quantity
                                     </td>
                                     <td>
-                                        <i class="fa fa-try" aria-hidden="true"></i>
-                                        @item.Price
+                                        @item.Price.ToString("c", new CultureInfo("tr-TR"))
                                     </td>
                                     <td>
                                         <a href="/Home/Details/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">

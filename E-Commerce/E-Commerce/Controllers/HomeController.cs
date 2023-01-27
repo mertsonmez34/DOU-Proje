@@ -16,7 +16,7 @@ namespace E_Commerce.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var urunler = _context.Products
+            var products = _context.Products
                 .Where(i => i.IsHome)
                 .Select(i => new ProductModel()
                 {
@@ -24,11 +24,16 @@ namespace E_Commerce.Controllers
                     Name = i.Name.Length > 50 ? i.Name.Substring(0, 47) + "..." : i.Name,
                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
                     Price = i.Price,
-                    ProductAvailable=i.ProductAvailable,
+                    ProductAvailable = i.ProductAvailable,
                     Stock = i.Stock,
                     Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                     CategoryId = i.CategoryId,
+                    Category = i.Category,
                     Brand = i.Brand,
+                    IsApproved = i.IsApproved,
+                    ChosenOption = i.ChosenOption,
+                    SKU = i.SKU,
+                    IsHome = i.IsHome,
                     Type = i.Type,
                     Reviews = i.Reviews.Select(a => new ReviewModel()
                     {
@@ -41,7 +46,7 @@ namespace E_Commerce.Controllers
                     }).OrderByDescending(b => b.Date).ToList()
                 }).ToList();
 
-            return View(urunler);
+            return View(products);
         }
 
         public ActionResult Details(int? id)
@@ -72,9 +77,16 @@ namespace E_Commerce.Controllers
                      Name = i.Name,
                      Description = i.Description.Length > 50 ? i.Description.Substring(0, 150) + "..." : i.Description,
                      Price = i.Price,
+                     ProductAvailable = i.ProductAvailable,
+                     Stock = i.Stock,
                      Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                      CategoryId = i.CategoryId,
+                     Category = i.Category,
                      Brand = i.Brand,
+                     IsApproved = i.IsApproved,
+                     ChosenOption = i.ChosenOption,
+                     SKU = i.SKU,
+                     IsHome = i.IsHome,
                      Type = i.Type,
                      Reviews = i.Reviews.Select(a => new ReviewModel()
                      {
@@ -117,13 +129,18 @@ namespace E_Commerce.Controllers
             {
                 Id = i.Id,
                 Name = i.Name,
-                SKU = i.SKU,
                 Description = i.Description,
                 Price = i.Price,
+                ProductAvailable = i.ProductAvailable,
+                Stock = i.Stock,
                 Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                 CategoryId = i.CategoryId,
-                ProductAvailable=i.ProductAvailable,
+                Category = i.Category,
                 Brand = i.Brand,
+                IsApproved = i.IsApproved,
+                ChosenOption = i.ChosenOption,
+                SKU = i.SKU,
+                IsHome = i.IsHome,
                 Type = i.Type,
                 Reviews = i.Reviews.Select(a => new ReviewModel()
                 {
@@ -200,9 +217,16 @@ namespace E_Commerce.Controllers
                      Name = i.Name,
                      Description = i.Description.Length > 50 ? i.Description.Substring(0, 150) + "..." : i.Description,
                      Price = i.Price,
+                     ProductAvailable = i.ProductAvailable,
+                     Stock = i.Stock,
                      Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                      CategoryId = i.CategoryId,
+                     Category = i.Category,
                      Brand = i.Brand,
+                     IsApproved = i.IsApproved,
+                     ChosenOption = i.ChosenOption,
+                     SKU = i.SKU,
+                     IsHome = i.IsHome,
                      Type = i.Type,
                      Reviews = i.Reviews.Select(a => new ReviewModel()
                      {
@@ -246,7 +270,7 @@ namespace E_Commerce.Controllers
         [HttpPost]
         public ActionResult List(string search)
         {
-            
+
             var urunler = _context.Products
                 .Where(i => i.Name.ToLower().Contains(search.ToLower()))
                 .Select(i => new ProductModel()
@@ -259,7 +283,12 @@ namespace E_Commerce.Controllers
                     Stock = i.Stock,
                     Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                     CategoryId = i.CategoryId,
+                    Category = i.Category,
                     Brand = i.Brand,
+                    IsApproved = i.IsApproved,
+                    ChosenOption = i.ChosenOption,
+                    SKU = i.SKU,
+                    IsHome = i.IsHome,
                     Type = i.Type,
                     Reviews = i.Reviews.Select(a => new ReviewModel()
                     {
@@ -271,9 +300,9 @@ namespace E_Commerce.Controllers
 
                     }).OrderByDescending(b => b.Date).ToList()
                 }).ToList();
-            
+
             return View(urunler);
         }
-        
+
     }
 }

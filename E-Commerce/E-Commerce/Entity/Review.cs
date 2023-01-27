@@ -7,7 +7,7 @@ namespace E_Commerce.Entity
 {
     public class Review
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public DateTime Date { get; set; }
 

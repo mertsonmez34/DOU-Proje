@@ -99,12 +99,12 @@ namespace E_Commerce.Controllers
             order.OrderState = EnumOrderState.Waiting;
             order.Username = User.Identity.Name;
 
-            order.AdresBasligi = entity.AdresBasligi;
-            order.Adres = entity.Adres;
-            order.Sehir = entity.Sehir;
-            order.Semt = entity.Semt;
-            order.Mahalle = entity.Mahalle;
-            order.PostaKodu = entity.PostaKodu;
+            order.AddressName = entity.AddressName;
+            order.Address = entity.Address;
+            order.City = entity.City;
+            order.District = entity.District;
+            order.Neighborhood = entity.Neighborhood;
+            order.PostalCode = entity.PostalCode;
 
             order.Orderlines = new List<OrderLine>();
 

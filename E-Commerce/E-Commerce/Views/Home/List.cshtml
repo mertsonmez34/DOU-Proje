@@ -5,11 +5,32 @@
 
 }
 
+<style>
+    .card {
+        height: 14.5rem;
+    }
+
+    @@media (min-width: 920px) {
+        .filterDiv {
+            max-width: 300px;
+            flex: none;
+        }
+    }
+
+    .filterDiv {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+</style>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2">
+        <div class="filterDiv mt-5">
             <div class="col-sm-12">
-                <p>Filtering</p>
+
                 <div class="card h-100">
 
                     <article class="card-group-item mh-25">
@@ -73,7 +94,7 @@
                             <div class="filter-content mh-25 mt-0">
                                 <div class="card-body">
                                     <button type="button" id="btnFilter" class="btn btn-primary" onclick="typeFunction(), CalculateNumberOfProduct()">Filter</button>
-                                    <button type="button" id="btnReload" class="btn btn-secondary mt-2" onclick="reloadPage()">Clear Filter</button>
+                                    <button type="button" id="btnReload" class="btn btn-secondary" onclick="reloadPage()">Clear Filter</button>
                                 </div> <!-- card-body.// -->
                             </div>
                         </div> <!-- card.// -->

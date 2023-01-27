@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -11,20 +12,23 @@ namespace E_Commerce.Models
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Please enter the address description.")]
-        public string AdresBasligi { get; set; }
+        [DisplayName("Address Type")]
+        public string AddressName { get; set; }
 
         [Required(ErrorMessage = "Please enter an address.")]
-        public string Adres { get; set; }
+        public string Address { get; set; }
 
         [Required(ErrorMessage = "Please enter city.")]
-        public string Sehir { get; set; }
+        public string City { get; set; }
 
         [Required(ErrorMessage = "Please enter district.")]
-        public string Semt { get; set; }
+        public string District { get; set; }
 
         [Required(ErrorMessage = "Please enter neighborhood.")]
-        public string Mahalle { get; set; }
+        [DisplayName("Street")]
+        public string Neighborhood { get; set; }
 
-        public string PostaKodu { get; set; }
+        [DisplayName("Postal Code")]
+        public string PostalCode { get; set; }
     }
 }

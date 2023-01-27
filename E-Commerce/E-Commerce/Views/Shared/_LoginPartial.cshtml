@@ -3,16 +3,26 @@
 
     @if (Request.IsAuthenticated)
     {
-        //kullanıcı adını ve logout linklerini çıkar
+        // show admin panel button
+        if (User.IsInRole("admin"))
+        { 
+            <li class="nav-item active">
+                <a class="nav-link" href="/Product">Admin Panel</a>
+            </li>
+        }
+        // user account
         <li class="nav-item active">
             <a class="nav-link" href="/Account">@User.Identity.Name</a>
         </li>
+        
+        // logout button
         <li class="nav-item active">
             <a class="nav-link" href="/Account/Logout">Logout</a>
         </li>
     }
     else
     {
+        // login or register dropdown
         <li class="dropdown">
             <button class="btn btn-dark dropdown-toggle mr-2 ml-4" type="button" id="loginButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="bi bi-box-arrow-in-right mr-2"></i>
@@ -23,13 +33,5 @@
                 <a class="dropdown-item" href="/Account/Register">Register</a>
             </div>
         </li>
-
-        /*login ve register linkleri çıkar
-        <li class="nav-item active">
-            <a class="nav-link" href="/Account/Login">Login</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/Account/Register">Register</a>
-        </li>*/
     }
 </ul>

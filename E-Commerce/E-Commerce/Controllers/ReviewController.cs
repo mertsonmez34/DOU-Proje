@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using E_Commerce.Entity;
+using E_Commerce.Models;
 
 namespace E_Commerce.Controllers
 {
@@ -15,13 +16,26 @@ namespace E_Commerce.Controllers
         private DataContext db = new DataContext();
 
         // GET: Review
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
-            var reviews = db.Reviews.Include(r => r.Product);
-            return View(reviews.ToList());
+            var reviews = db.Reviews.Include(r => r.Product).Select(i => new ReviewModel()
+            {
+                ID = i.ID,
+                ProductID = i.ProductID,
+                SenderName = i.SenderName,
+                Content = i.Content,
+                Date = i.Date,
+                Ranking = i.Ranking,
+                Product = i.Product,
+            }).OrderByDescending(b => b.Date).ToList();
+
+
+            return View(reviews);
         }
 
         // GET: Review/Details/5
+        [Authorize(Roles = "admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -29,48 +43,70 @@ namespace E_Commerce.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Review review = db.Reviews.Find(id);
+
             if (review == null)
             {
                 return HttpNotFound();
             }
-            return View(review);
-        }
 
-        int productId;
+            ReviewModel reviewModel = new ReviewModel()
+            {
+                ID = review.ID,
+                SenderName = review.SenderName,
+                Ranking = review.Ranking,
+                Date = review.Date,
+                Content = review.Content,
+                ProductID = review.ProductID,
+                Product = review.Product,
+            };
+
+            return View(reviewModel);
+        }
 
         // GET: Review/Create
         [HttpGet]
+        [Authorize]
         public ActionResult Create(int id)
         {
-            // ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU");
-            Review review = new Review();
-            review.ProductID = id;
+            ReviewModel reviewModel = new ReviewModel();
+            reviewModel.ProductID = id;
 
-            return View(review);
+            return View(reviewModel);
         }
 
         // POST: Review/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Date,SenderName,ProductID,Ranking,Content")] Review review)
+        [Authorize]
+        public ActionResult Create([Bind(Include = "Id,Date,SenderName,ProductID,Ranking,Content")] ReviewModel reviewModel)
         {
             if (ModelState.IsValid)
             {
-                review.Date = DateTime.Now;
-                review.SenderName = User.Identity.Name;
+                reviewModel.Date = DateTime.Now;
+                reviewModel.SenderName = User.Identity.Name;
+
+                Review review = new Review()
+                {
+                    ID = reviewModel.ID,
+                    SenderName = reviewModel.SenderName,
+                    Ranking = reviewModel.Ranking,
+                    Date = reviewModel.Date,
+                    Content = reviewModel.Content,
+                    ProductID = reviewModel.ProductID,
+                    Product = reviewModel.Product,
+                };
 
                 db.Reviews.Add(review);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", review.ProductID);
-            return View(review);
+            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", reviewModel.ProductID);
+            return View(reviewModel);
         }
 
         // GET: Review/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,28 +118,41 @@ namespace E_Commerce.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", review.ProductID);
-            return View(review);
+
+            ReviewModel reviewModel = new ReviewModel()
+            {
+                ID = review.ID,
+                SenderName = review.SenderName,
+                Ranking = review.Ranking,
+                Date = review.Date,
+                Content = review.Content,
+                ProductID = review.ProductID,
+                Product = review.Product,
+            };
+
+            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", reviewModel.ProductID);
+
+            return View(reviewModel);
         }
 
         // POST: Review/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Date,SenderName,ProductID,Ranking,Content")] Review review)
+        [Authorize(Roles = "admin")]
+        public ActionResult Edit([Bind(Include = "Id,Date,SenderName,ProductID,Ranking,Content")] ReviewModel reviewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(review).State = EntityState.Modified;
+                db.Entry(db.Reviews.Find(reviewModel.ProductID)).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", review.ProductID);
-            return View(review);
+            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", reviewModel.ProductID);
+            return View(reviewModel);
         }
 
         // GET: Review/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,12 +164,24 @@ namespace E_Commerce.Controllers
             {
                 return HttpNotFound();
             }
-            return View(review);
+            ReviewModel reviewModel = new ReviewModel()
+            {
+                ID = review.ID,
+                SenderName = review.SenderName,
+                Ranking = review.Ranking,
+                Date = review.Date,
+                Content = review.Content,
+                ProductID = review.ProductID,
+                Product = review.Product,
+            };
+
+            return View(reviewModel);
         }
 
         // POST: Review/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Review review = db.Reviews.Find(id);

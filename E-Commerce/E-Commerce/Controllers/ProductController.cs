@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using E_Commerce.Entity;
+using E_Commerce.Models;
 
 namespace E_Commerce.Controllers
 {
@@ -18,8 +19,37 @@ namespace E_Commerce.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            var products = db.Products
+                .Include(p => p.Category)
+                .Select(i => new ProductModel()
+                {
+                    Id = i.Id,
+                    Name = i.Name.Length > 50 ? i.Name.Substring(0, 47) + "..." : i.Name,
+                    Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
+                    Price = i.Price,
+                    ProductAvailable = i.ProductAvailable,
+                    Stock = i.Stock,
+                    Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
+                    CategoryId = i.CategoryId,
+                    Category = i.Category,
+                    Brand = i.Brand,
+                    IsApproved = i.IsApproved,
+                    ChosenOption = i.ChosenOption,
+                    SKU = i.SKU,
+                    IsHome = i.IsHome,
+                    Type = i.Type,
+                    Reviews = i.Reviews.Select(a => new ReviewModel()
+                    {
+                        ProductID = a.ProductID,
+                        Date = a.Date,
+                        SenderName = a.SenderName,
+                        Ranking = a.Ranking,
+                        Content = a.Content
+
+                    }).OrderByDescending(b => b.Date).ToList()
+                }).ToList();
+
+            return View(products);
         }
 
         // GET: Product/Details/5
@@ -29,12 +59,15 @@ namespace E_Commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+
+            ProductModel productModel = GetProductModel((int)id);
+
+
+            if (productModel == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(productModel);
         }
 
         // GET: Product/Create
@@ -45,21 +78,19 @@ namespace E_Commerce.Controllers
         }
 
         // POST: Product/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Stock,Image,IsHome,IsApproved,CategoryId")] Product product)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Stock,Image,IsHome,IsApproved,CategoryId")] ProductModel productModel)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
+                db.Products.Add(db.Products.Find(productModel.Id));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-            return View(product);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", productModel.CategoryId);
+            return View(productModel);
         }
 
         // GET: Product/Edit/5
@@ -69,30 +100,31 @@ namespace E_Commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+
+            ProductModel productModel = GetProductModel((int)id);
+
+            if (productModel == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-            return View(product);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", productModel.CategoryId);
+
+            return View(productModel);
         }
 
         // POST: Product/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Stock,Image,IsHome,IsApproved,CategoryId")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Stock,Image,IsHome,IsApproved,CategoryId")] ProductModel productModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(db.Products.Find(productModel.Id)).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-            return View(product);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", productModel.CategoryId);
+            return View(productModel);
         }
 
         // GET: Product/Delete/5
@@ -102,12 +134,14 @@ namespace E_Commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+
+            ProductModel productModel = GetProductModel((int)id);
+
+            if (productModel == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(productModel);
         }
 
         // POST: Product/Delete/5
@@ -128,6 +162,39 @@ namespace E_Commerce.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private ProductModel GetProductModel(int productId)
+        {
+            var productModel = db.Products.Where(i => i.Id == productId).Select(i => new ProductModel()
+            {
+                Id = i.Id,
+                Name = i.Name,
+                Description = i.Description,
+                Price = i.Price,
+                ProductAvailable = i.ProductAvailable,
+                Stock = i.Stock,
+                Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
+                CategoryId = i.CategoryId,
+                Category = i.Category,
+                Brand = i.Brand,
+                IsApproved = i.IsApproved,
+                ChosenOption = i.ChosenOption,
+                SKU = i.SKU,
+                IsHome = i.IsHome,
+                Type = i.Type,
+                Reviews = i.Reviews.Select(a => new ReviewModel()
+                {
+                    ProductID = a.ProductID,
+                    Date = a.Date,
+                    SenderName = a.SenderName,
+                    Ranking = a.Ranking,
+                    Content = a.Content
+
+                }).OrderByDescending(b => b.Date).ToList()
+            }).FirstOrDefault();
+
+            return productModel;
         }
     }
 }
