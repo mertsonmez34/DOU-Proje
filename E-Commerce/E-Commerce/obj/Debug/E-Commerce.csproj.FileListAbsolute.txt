@@ -149,7 +149,6 @@ C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.
 C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.Web.Webpages.Razor.resources.dll
 C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.Web.Helpers.resources.dll
 C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\bin\tr\System.Web.Mvc.resources.dll
-C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.AssemblyReference.cache
 C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.CoreCompileInputs.cache
 C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.CopyComplete
 C:\Users\mert.sonmez\Source\Repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.dll
@@ -1248,3 +1247,4 @@ C:\Users\mert.sonmez\source\repos\DOU-Proje\E-Commerce\E-Commerce\bin\System.Run
 C:\Users\mert.sonmez\source\repos\DOU-Proje\E-Commerce\E-Commerce\bin\System.Text.Encodings.Web.xml
 C:\Users\mert.sonmez\source\repos\DOU-Proje\E-Commerce\E-Commerce\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\mert.sonmez\source\repos\DOU-Proje\E-Commerce\E-Commerce\bin\System.ValueTuple.xml
+C:\Users\mert.sonmez\source\repos\DOU-Proje\E-Commerce\E-Commerce\obj\Debug\E-Commerce.csproj.AssemblyReference.cache
