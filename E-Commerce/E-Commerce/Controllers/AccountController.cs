@@ -107,6 +107,9 @@ namespace E_Commerce.Controllers
                 user.Surname = model.SurName;
                 user.Email = model.Email;
                 user.UserName = model.UserName;
+                user.Height = model.Height;
+                user.Weight = model.Weight;
+                user.Sex = model.Sex;
 
                 var result = _userManager.Create(user, model.Password);
 
