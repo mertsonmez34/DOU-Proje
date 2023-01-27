@@ -117,10 +117,19 @@ namespace E_Commerce.Controllers
                         _userManager.AddToRole(user.Id, "user");
                     }
                     return RedirectToAction("Login", "Account");
+                    
+                }
+                if (user.UserName.Contains(model.UserName))
+                {
+                    ModelState.AddModelError("", "The Username is already exist.");
+                }
+                if (user.Email.Contains(model.Email))
+                {
+                    ModelState.AddModelError("", "The E-Mail address is already exist.");
                 }
                 else
                 {
-                    ModelState.AddModelError("RegisterUserError", "User creation error.");
+                    ModelState.AddModelError("", "User creation error.");
                 }
 
             }
@@ -170,7 +179,7 @@ namespace E_Commerce.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("LoginUserError", "There is no such user.");
+                    ModelState.AddModelError("", "Please control the username and password.");
                 }
             }
 

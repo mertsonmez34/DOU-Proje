@@ -14,10 +14,10 @@ namespace E_Commerce.Service
     /// update sp
     /*      Create procedure SpUpdateOption
                @Id int,
-               @ChosenOption nvarchar(15),
+               @ChosenOption nvarchar(15)
                AS
                UPDATE Products SET ChosenOption=@ChosenOption
-             HERE Id = @Id; */
+             WHERE Id = @Id; */
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
