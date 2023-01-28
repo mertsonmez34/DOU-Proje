@@ -22,15 +22,8 @@ namespace E_Commerce.Entity
         public Category Category { get; set; }
         public double Price { get; set; }
         public string ChosenOption { get; set; }
-        public string AvailableColors { get; set; }  // stokta olan renkler
-        public int Discount { get; set; } //indirim
-        public int Stock { get; set; } // stoktaki adet
-        public short UnitsOnOrder { get; set; } //sipariş edilme sayısı
         public bool ProductAvailable { get; set; } // ürün var mı
-        public int DiscountAvailable { get; set; } //indirim var mı
-        public string Note { get; set; }
         public string Image { get; set; } // picture url
-        public short Ranking { get; set; } //oylama
         public bool IsApproved { get; set; }
         public string Type { get; set; }
         public string Brand { get; set; }

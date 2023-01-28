@@ -33,9 +33,6 @@ namespace E_Commerce.Models
         [DisplayName("Chosen Option")]
         public string ChosenOption { get; set; }
 
-        [Required(ErrorMessage = "Stock can't be empty")]
-        public int Stock { get; set; } // stoktaki adet
-
         public bool ProductAvailable { get; set; } // ürün var mı
 
         public virtual List<ReviewModel> Reviews { get; set; }
@@ -46,8 +43,10 @@ namespace E_Commerce.Models
         [DisplayName("Product Available")]
         public bool IsApproved { get; set; }
 
+        [Required(ErrorMessage = "Type can't be empty")]
         public string Type { get; set; }
 
+        [Required(ErrorMessage = "Brand can't be empty")]
         public string Brand { get; set; }
 
     }

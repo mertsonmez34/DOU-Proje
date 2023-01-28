@@ -21,11 +21,11 @@
             <dl class="row">
 
 
-                <dt class="col-sm-3">Username</dt>
+                <dt class="col-sm-3">User Name</dt>
                 <dd class="col-sm-9">@Model.UserName
                 <dd>
 
-                <dt class="col-sm-3">Order State</dt>
+                <dt class="col-sm-3">Order Status</dt>
                 <dd class="col-sm-9">
 
                     @using (Html.BeginForm("UpdateOrderState", "Order", FormMethod.Post))
@@ -44,20 +44,17 @@
 
                 </dd>
 
-                <dt class="col-sm-3">Order Id</dt>
-                <dd class="col-sm-9">@Model.OrderId</dd>
-
                 <dt class="col-sm-3">Order Number</dt>
                 <dd class="col-sm-9">@Model.OrderNumber</dd>
+
+                <dt class="col-sm-3">Order Date</dt>
+                <dd class="col-sm-9">@Model.OrderDate</dd>
 
                 <dt class="col-sm-3">Total</dt>
                 <dd class="col-sm-9">
                     @Model.Total.ToString("c", new CultureInfo("tr-TR"))
 
                 </dd>
-
-                <dt class="col-sm-3">Order Date</dt>
-                <dd class="col-sm-9">@Model.OrderDate</dd>
 
 
                 <dt class="col-sm-3">Address</dt>

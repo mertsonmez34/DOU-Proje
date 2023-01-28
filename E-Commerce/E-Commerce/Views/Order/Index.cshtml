@@ -10,9 +10,7 @@
     <hr />
 
     <table class="table table-bordered table-striped">
-        <thead>
             <tr>
-                <th>Id</th>
                 <th>Order Number</th>
                 <th>Order Date</th>
                 <th>Order Status</th>
@@ -20,12 +18,11 @@
                 <th>Total Price</th>
                 <td></td>
             </tr>
-        </thead>
-        <tbody>
+        
+
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Id</td>
                     <td>@item.OrderNumber</td>
                     <td>@item.OrderDate</td>
                     <td>@item.OrderState</td>
@@ -36,7 +33,6 @@
                     </td>
                 </tr>
             }
-        </tbody>
     </table>
 </div>
 

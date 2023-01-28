@@ -16,15 +16,26 @@ namespace E_Commerce.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            var orders = db.Orders.Select(i => new AdminOrderModel()
+            var orders = new List<AdminOrderModel>();
+
+            if (db.Orders.ToList().Count() != 0)
             {
-                Id = i.Id,
-                OrderNumber = i.OrderNumber,
-                OrderDate = i.OrderDate,
-                OrderState = i.OrderState,
-                Total = i.Total,
-                Count = i.Orderlines.Count
-            }).OrderByDescending(i => i.OrderDate).ToList();
+                orders = db.Orders.Select(i => i).ToList().Select(i => new AdminOrderModel()
+                {
+                    Id = i.Id,
+                    OrderNumber = i.OrderNumber,
+                    OrderDate = i.OrderDate,
+                    OrderState = i.OrderState,
+                    Total = i.Total,
+                    Count = i.Orderlines.Count
+                }).ToList();
+            }
+
+
+            if (orders != null)
+            {
+                orders.OrderByDescending(i => i.OrderDate);
+            }
 
             return View(orders);
         }
@@ -71,7 +82,7 @@ namespace E_Commerce.Controllers
 
                 TempData["message"] = "The Information Has Been Registered";
 
-                return RedirectToAction("Details", new {id = OrderId});
+                return RedirectToAction("Details", new { id = OrderId });
             }
 
             return RedirectToAction("Index");

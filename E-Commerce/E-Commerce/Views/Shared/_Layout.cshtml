@@ -16,30 +16,25 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
 
-            <a href="/Home"><img src="~/theme/img/logo.png" alt="..." class="navbar-brand" height="60" width="150" title="Home Page"></a>            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" >
+
+            <a href="/Home"><img src="~/theme/img/logo.png" alt="..." class="navbar-brand" height="60" width="150" title="Home Page"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-
             <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    @*<li class="nav-item active px-3">
-                        <a class="nav-link" href="/Home">Home <span class="sr-only">(current)</span></a>
-                    </li>*@
-                </ul>
                 <div class="form-inline mx-lg-auto">
                     @using (Html.BeginForm("List", "Home", FormMethod.Post))
                     {
-                    <ul class="navbar-nav mr-auto">
-                        <input class="form-control" type="search" placeholder="Search the product" aria-label="Search" name="search">
-                        <button id="btnSearch" class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                       <ul class="navbar-nav mr-auto">
+                           <input class="form-control" type="search" placeholder="Search the product" aria-label="Search" name="search">
+                           <button id="btnSearch" class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
 
-                        @Html.Action("Summary", "Cart")
-                        @Html.Partial("_LoginPartial")
+                            @Html.Action("Summary", "Cart")
+                            @Html.Partial("_LoginPartial")
 
-                    </ul>
-                    }
+                       </ul>
+                     }
                 </div>
             </div>
         </div>
@@ -47,7 +42,7 @@
     <nav class="navbar navbar-dark bg-light mb-2">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="dropdown">
                         <div class="btn-group">
                             <a href="/Home/List/1" class="btn btn-light mr-3 ml-2" aria-haspopup="true" aria-expanded="false">
@@ -95,16 +90,10 @@
     @RenderBody()
 
     <footer class="footer">
-        <div class="container">
-            <span class="text-muted">
-                Place sticky footer content here.
-                <a href="#navbar" class="btn btn-light mr-3 ml-2" aria-haspopup="true" aria-expanded="false">
-                    <i class="bi bi-arrow-up"></i>
-                    Back to top
-                </a>
-            </span>
-        </div>
+
+        <p class="text-center text-muted">© @(DateTime.Now.Year) BMMShop</p>
     </footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

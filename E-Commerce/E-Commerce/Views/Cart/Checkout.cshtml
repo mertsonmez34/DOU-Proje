@@ -39,51 +39,51 @@
                         @Html.ValidationSummary()
 
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Username</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">User Name</label>
                             <div class="col-sm-9">
-                                <span class="badge-danger">
+                                <span class="badge-warning">
                                     @User.Identity.Name
                                 </span>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Adres Tanımı</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Address Type*</label>
                             <div class="col-sm-9">
-                                @Html.TextBoxFor(model => model.AddressName, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.AddressName, new { @class = "form-control", placeholder="Home/Business Address" })
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Adres</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Address*</label>
                             <div class="col-sm-9">
                                 @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Şehir</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">City*</label>
                             <div class="col-sm-9">
                                 @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Semt</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">District*</label>
                             <div class="col-sm-9">
                                 @Html.TextBoxFor(model => model.District, new { @class = "form-control" })
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Mahalle</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Street*</label>
                             <div class="col-sm-9">
                                 @Html.TextBoxFor(model => model.Neighborhood, new { @class = "form-control" })
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Posta Kodu</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Postal Code</label>
                             <div class="col-sm-9">
                                 @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control" })
                             </div>
@@ -92,7 +92,7 @@
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Checkout</button>
                             </div>
                         </div>
 

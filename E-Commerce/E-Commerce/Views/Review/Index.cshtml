@@ -31,8 +31,6 @@
 
         @foreach (var item in Model)
         {
-            /// TODO sku duzelt
-            item.Product.SKU = ((new Random()).Next(1111111, 9999999)).ToString();
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.SKU)

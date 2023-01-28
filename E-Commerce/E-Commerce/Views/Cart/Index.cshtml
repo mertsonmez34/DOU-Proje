@@ -36,13 +36,13 @@
                                 @item.Product.Name
                             </td>
                             <td>
-                                @item.Product.ChosenOption
+                               @item.Product.ChosenOption
                             </td>
                             <td>
                                 @item.Quantity
                             </td>
                             <td>
-                                @item.Product.Price
+                                @item.Product.Price.ToString("c", new CultureInfo("tr-TR"))
                             </td>
                             <td>
                                 @((item.Product.Price * item.Quantity).ToString("c", new CultureInfo("tr-TR")))

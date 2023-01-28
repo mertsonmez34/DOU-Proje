@@ -117,7 +117,7 @@ namespace E_Commerce.Controllers
                         _userManager.AddToRole(user.Id, "user");
                     }
                     return RedirectToAction("Login", "Account");
-                    
+
                 }
                 if (user.UserName.Contains(model.UserName))
                 {
@@ -247,6 +247,7 @@ namespace E_Commerce.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> PasswordChange(string Password, string RePassword)
         {
             var currentUser = await _userManager.FindByIdAsync(User.Identity.GetUserId());
@@ -261,9 +262,6 @@ namespace E_Commerce.Controllers
 
                         var result = await _userManager.AddPasswordAsync(currentUser.Id, Password);
 
-                        //var token = await _userManager.GeneratePasswordResetTokenAsync(currentUser.Id.ToString());
-
-                        //var result = await _userManager.ResetPasswordAsync(currentUser.Id.ToString(), token, Password);
 
                         if (result.Succeeded)
                         {
@@ -283,29 +281,12 @@ namespace E_Commerce.Controllers
                         ModelState.AddModelError("", "Passwords Does not Matched!");
                 else
                     ModelState.AddModelError("", "Passwords cannot be empty");
-
-
-                /*if (user.Password == user.RePassword)
-                 {
-
-                     /*if (result.Succeeded)
-                     {
-                         var authManager = HttpContext.GetOwinContext().Authentication;
-                         authManager.SignOut();
-
-                         return RedirectToAction("Login", "Account");
-                     }
-                 }
-                 else
-                 {
-                     ModelState.AddModelError("RegisterUserError", "Passwords Does not Matched!");
-                 }*/
             }
             return View();
         }
 
 
-
+        [Authorize]
         public ActionResult Logout()
         {
             var authManager = HttpContext.GetOwinContext().Authentication;
@@ -359,6 +340,27 @@ namespace E_Commerce.Controllers
             return null;
         }
 
+        [Authorize]
+        public bool isAlreadyReviewed(int productID)
+        {
+            var currentUser = _userManager.FindById(User.Identity.GetUserId());
+
+            var product = db.Products.Find(productID);
+
+            if (product == null)
+            {
+                return false;
+            }
+
+            if (product.Reviews.FirstOrDefault(i => i.SenderName == currentUser.UserName) == null)
+            {
+                return false;
+            }
+            else
+                return true;
+
+
+        }
 
     }
 }

@@ -25,7 +25,6 @@ namespace E_Commerce.Controllers
                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
                     Price = i.Price,
                     ProductAvailable = i.ProductAvailable,
-                    Stock = i.Stock,
                     Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                     CategoryId = i.CategoryId,
                     Category = i.Category,
@@ -37,6 +36,8 @@ namespace E_Commerce.Controllers
                     Type = i.Type,
                     Reviews = i.Reviews.Select(a => new ReviewModel()
                     {
+                        ID = a.ID,
+                        Product = a.Product,
                         ProductID = a.ProductID,
                         Date = a.Date,
                         SenderName = a.SenderName,
@@ -78,7 +79,6 @@ namespace E_Commerce.Controllers
                      Description = i.Description.Length > 50 ? i.Description.Substring(0, 150) + "..." : i.Description,
                      Price = i.Price,
                      ProductAvailable = i.ProductAvailable,
-                     Stock = i.Stock,
                      Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                      CategoryId = i.CategoryId,
                      Category = i.Category,
@@ -90,6 +90,8 @@ namespace E_Commerce.Controllers
                      Type = i.Type,
                      Reviews = i.Reviews.Select(a => new ReviewModel()
                      {
+                         ID = a.ID,
+                         Product = a.Product,
                          ProductID = a.ProductID,
                          Date = a.Date,
                          SenderName = a.SenderName,
@@ -132,7 +134,6 @@ namespace E_Commerce.Controllers
                 Description = i.Description,
                 Price = i.Price,
                 ProductAvailable = i.ProductAvailable,
-                Stock = i.Stock,
                 Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                 CategoryId = i.CategoryId,
                 Category = i.Category,
@@ -144,6 +145,8 @@ namespace E_Commerce.Controllers
                 Type = i.Type,
                 Reviews = i.Reviews.Select(a => new ReviewModel()
                 {
+                    ID = a.ID,
+                    Product = a.Product,
                     ProductID = a.ProductID,
                     Date = a.Date,
                     SenderName = a.SenderName,
@@ -218,7 +221,6 @@ namespace E_Commerce.Controllers
                      Description = i.Description.Length > 50 ? i.Description.Substring(0, 150) + "..." : i.Description,
                      Price = i.Price,
                      ProductAvailable = i.ProductAvailable,
-                     Stock = i.Stock,
                      Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                      CategoryId = i.CategoryId,
                      Category = i.Category,
@@ -230,6 +232,8 @@ namespace E_Commerce.Controllers
                      Type = i.Type,
                      Reviews = i.Reviews.Select(a => new ReviewModel()
                      {
+                         ID = a.ID,
+                         Product = a.Product,
                          ProductID = a.ProductID,
                          Date = a.Date,
                          SenderName = a.SenderName,
@@ -280,7 +284,6 @@ namespace E_Commerce.Controllers
                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
                     Price = i.Price,
                     ProductAvailable = i.ProductAvailable,
-                    Stock = i.Stock,
                     Image = i.Image ?? "https://i0.wp.com/mobitek.com/wp-content/uploads/2019/11/google-alisveris-reklamlari.jpg",
                     CategoryId = i.CategoryId,
                     Category = i.Category,
@@ -292,6 +295,8 @@ namespace E_Commerce.Controllers
                     Type = i.Type,
                     Reviews = i.Reviews.Select(a => new ReviewModel()
                     {
+                        ID = a.ID,
+                        Product = a.Product,
                         ProductID = a.ProductID,
                         Date = a.Date,
                         SenderName = a.SenderName,

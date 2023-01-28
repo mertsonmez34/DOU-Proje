@@ -98,96 +98,11 @@ namespace E_Commerce.Controllers
 
                 db.Reviews.Add(review);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", reviewModel.ProductID);
             return View(reviewModel);
-        }
-
-        // GET: Review/Edit/5
-        [Authorize(Roles = "admin")]
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Review review = db.Reviews.Find(id);
-            if (review == null)
-            {
-                return HttpNotFound();
-            }
-
-            ReviewModel reviewModel = new ReviewModel()
-            {
-                ID = review.ID,
-                SenderName = review.SenderName,
-                Ranking = review.Ranking,
-                Date = review.Date,
-                Content = review.Content,
-                ProductID = review.ProductID,
-                Product = review.Product,
-            };
-
-            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", reviewModel.ProductID);
-
-            return View(reviewModel);
-        }
-
-        // POST: Review/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "admin")]
-        public ActionResult Edit([Bind(Include = "Id,Date,SenderName,ProductID,Ranking,Content")] ReviewModel reviewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(db.Reviews.Find(reviewModel.ProductID)).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ProductID = new SelectList(db.Products, "Id", "SKU", reviewModel.ProductID);
-            return View(reviewModel);
-        }
-
-        // GET: Review/Delete/5
-        [Authorize(Roles = "admin")]
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Review review = db.Reviews.Find(id);
-            if (review == null)
-            {
-                return HttpNotFound();
-            }
-            ReviewModel reviewModel = new ReviewModel()
-            {
-                ID = review.ID,
-                SenderName = review.SenderName,
-                Ranking = review.Ranking,
-                Date = review.Date,
-                Content = review.Content,
-                ProductID = review.ProductID,
-                Product = review.Product,
-            };
-
-            return View(reviewModel);
-        }
-
-        // POST: Review/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "admin")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Review review = db.Reviews.Find(id);
-            db.Reviews.Remove(review);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
