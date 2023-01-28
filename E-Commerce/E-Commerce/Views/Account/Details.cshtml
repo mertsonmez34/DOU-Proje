@@ -66,6 +66,7 @@
                             <tr>
                                 <th>Image</th>
                                 <th style="width: 45%;">Product Name</th>
+                                <th>Chosen Option</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th style="width: 10%;"></th>
@@ -75,43 +76,46 @@
 
                             @foreach (var item in Model.Orderlines)
                             {
-                                <tr>
-                                    <td>
-                                        <img src="@item.Image" width="70" />
-                                    </td>
-                                    <td>
-                                        @item.ProductName
-                                    </td>
-                                    <td>
-                                        @item.Quantity
-                                    </td>
-                                    <td>
-                                        @item.Price.ToString("c", new CultureInfo("tr-TR"))
-                                    </td>
-                                    <td>
-                                        <a href="/Home/Details/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">
+                            <tr>
+                                <td>
+                                    <img src="@item.Image" width="70" />
+                                </td>
+                                <td>
+                                    @item.ProductName
+                                </td>
+                                <td>
+                                    @item.ChosenOption
+                                </td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                                <td>
+                                    @item.Price.ToString("c", new CultureInfo("tr-TR"))
+                                </td>
+                                <td>
+                                    <a href="/Home/Details/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">
+                                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                        Product Details
+                                    </a>
+                                    <div style="height:10px"></div>
+
+                                    @if (accountController.isAlreadyReviewed(item.ProductId))
+                                    {
+                                        <button class="btn btn-secondary btn-sm" disabled>
                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                            Product Details
+                                            Already Commented
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Review/Create/@item.ProductId" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                            Write Comment
                                         </a>
-                                        <div style="height:10px"></div>
+                                    }
 
-                                        @if (accountController.isAlreadyReviewed(item.ProductId))
-                                        {
-                                            <button class="btn btn-secondary btn-sm" disabled>
-                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                                Already Commented
-                                            </button>
-                                        }
-                                        else
-                                        {
-                                            <a href="/Review/Create/@item.ProductId" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                                Write Comment
-                                            </a>
-                                        }
-
-                                    </td>
-                                </tr>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

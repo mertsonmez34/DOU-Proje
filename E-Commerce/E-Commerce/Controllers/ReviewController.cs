@@ -78,7 +78,7 @@ namespace E_Commerce.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "Id,Date,SenderName,ProductID,Ranking,Content")] ReviewModel reviewModel)
+        public ActionResult Create([Bind(Include = "Id,Date,SenderName,ProductID,Ranking,Content,Product")] ReviewModel reviewModel)
         {
             if (ModelState.IsValid)
             {

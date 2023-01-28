@@ -333,7 +333,7 @@ namespace E_Commerce.Controllers
                 }
                 else
                 {
-                    size = null;
+                    size = "Oversized";
                 }
                 return size;
             }

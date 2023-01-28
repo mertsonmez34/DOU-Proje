@@ -17,6 +17,7 @@ namespace E_Commerce.Models
 
         public void AddProduct(Product product, int quantity)
         {
+
             var line = _cardLines.FirstOrDefault(i => i.Product.Id == product.Id);
             if (line == null)
             {

@@ -28,7 +28,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12 ml-2 mt-1">
-                        @if (@Model.ProductAvailable == true)
+                        @if (@Model.IsApproved)
                         {
                             <span class="badge badge-primary">In Stock</span>
                         }
@@ -84,7 +84,7 @@
                         @using (Html.BeginForm("AddToCart", "Cart"))
                         {
                             @Html.HiddenFor(i => i.Id)
-                            if (@Model.ProductAvailable == true)
+                            if (@Model.IsApproved)
                             {
 
                                 <button id="addToCard" class="btn btn-success"><i class="bi bi-cart-plus-fill"></i>Add to Cart</button>

@@ -81,7 +81,7 @@ namespace E_Commerce.Controllers
         // POST: Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Image,IsHome,IsApproved,CategoryId")] ProductModel productModel)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,Image,IsHome,IsApproved,CategoryId,Type,Brand")] ProductModel productModel)
         {
             if (ModelState.IsValid)
             {
@@ -116,11 +116,24 @@ namespace E_Commerce.Controllers
         // POST: Product/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Image,IsHome,IsApproved,CategoryId")] ProductModel productModel)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Image,IsHome,IsApproved,CategoryId,Type,Brand")] ProductModel productModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(db.Products.Find(productModel.Id)).State = EntityState.Modified;
+                var product = db.Products.Find(productModel.Id);
+
+                product.Id = productModel.Id;
+                product.Name = productModel.Name;
+                product.Description = productModel.Description;
+                product.Price = productModel.Price;
+                product.Image = productModel.Image;
+                product.IsHome = productModel.IsHome;
+                product.IsApproved = productModel.IsApproved;
+                product.CategoryId = productModel.CategoryId;
+                product.Type = productModel.Type;
+                product.Brand = productModel.Brand;
+
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
