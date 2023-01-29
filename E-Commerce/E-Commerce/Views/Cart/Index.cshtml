@@ -36,7 +36,15 @@
                                 @item.Product.Name
                             </td>
                             <td>
-                               @item.Product.ChosenOption
+                                @if (item.Product.ChosenOption == "undefined")
+                                {
+                                    <p>Default</p>
+                                }
+                                else
+                                {
+                                    @item.Product.ChosenOption
+                                }
+
                             </td>
                             <td>
                                 @item.Quantity

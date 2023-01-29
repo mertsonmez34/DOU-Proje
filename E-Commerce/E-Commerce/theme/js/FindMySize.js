@@ -2,7 +2,7 @@
     var buttonForTshirtAndJacket = document.getElementById("btnFMSForTshirtAndJacket");
     var hiddenType = document.getElementById("hiddenType").innerHTML;
 
-    if (hiddenType == "T-Shirt" || hiddenType == "Ceket") {
+    if (hiddenType == "T-Shirt" || hiddenType == "Jacket") {
         buttonForTshirtAndJacket.addEventListener("click", function () {
             var e = document.getElementById("sizeTypeForTshirtAndJacket");
             var text = e.options[e.selectedIndex].text;
@@ -73,7 +73,7 @@
             }
         });
     }
-    else if (hiddenType == "Elbise" || hiddenType == "Pantolon") {
+    else if (hiddenType == "Dress" || hiddenType == "Jeans") {
         var buttonForClothesAndJeans = document.getElementById("btnFMSForClothesAndJeans");
         buttonForClothesAndJeans.addEventListener("click", function () {
             var e = document.getElementById("sizeTypeForClothesAndJeans");

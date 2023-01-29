@@ -6,20 +6,20 @@
 }
 <label id="hiddenType" hidden="hidden">@Model.Type</label>
 <div class="row">
-    @if (Model.Type == "T-Shirt" || Model.Type == "Ceket")
+    @if (Model.Type == "T-Shirt" || Model.Type == "Jacket")
     {
         <h4 class="mt-4">Find My Size</h4>
         <div class="row mt-1 ml-2">
-            <input type="text" name="height" id="heightForTshirtAndJacket" autocomplete="off" placeholder="Height">
-            @*<span>
-            <p style="margin-bottom:0">cm</p>
 
-        </span>*@
-            <input type="text" class="ml-4" name="weight" id="weightForTshirtAndJacket" autocomplete="off" placeholder="Weight">
-            @*<span>
+            <span>
+                <p style="margin-bottom:0">cm</p>
+                <input type="text" name="height" id="heightForTshirtAndJacket" autocomplete="off" placeholder="Height">
+            </span>
+            
+            <span>
                 <p class="ml-4" style="margin-bottom:0">kg</p>
-
-            </span>*@
+                <input type="text" class="ml-4" name="weight" id="weightForTshirtAndJacket" autocomplete="off" placeholder="Weight">
+            </span>
 
             <div class="row mt-4">
                 <label class="mt-2 ml-4" for="size">Choose size type:</label>
@@ -35,21 +35,22 @@
         <button class="mt-4 ml-4" type="button" id="btnFMSForTshirtAndJacket">Find My Size</button>
         <label class="mt-4 ml-4" id="resultForTshirtAndJacket"></label>
     }
-    @if (Model.Type == "Elbise" || Model.Type == "Pantolon")
+    @if (Model.Type == "Dress" || Model.Type == "Jeans")
     {
         <h4 class="mt-4">Find My Size</h4>
         <div class="row mt-1 ml-2">
-            <input type="text" name="height" id="heightForClothesAndJeans" autocomplete="off" placeholder="Height">
-            @*<span>
-            <p style="margin-bottom:0">cm</p>
+           
+            <span>
+                <p style="margin-bottom:0">cm</p>
+                <input type="text" name="height" id="heightForClothesAndJeans" autocomplete="off" placeholder="Height">
+            </span>
 
-        </span>*@
-
-            <input type="text" class="ml-4" name="weight" id="weightForClothesAndJeans" autocomplete="off" placeholder="Weight">
-            @*<span>
+            
+            <span>
                 <p class="ml-4" style="margin-bottom:0">kg</p>
+                <input type="text" class="ml-4" name="weight" id="weightForClothesAndJeans" autocomplete="off" placeholder="Weight">
+            </span>
 
-            </span>*@
             <div class="row mt-4">
                 <label class="mt-2 ml-4" for="size">Choose size type:</label>
 
