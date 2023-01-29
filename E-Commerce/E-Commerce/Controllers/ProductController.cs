@@ -85,7 +85,19 @@ namespace E_Commerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(db.Products.Find(productModel.Id));
+                Product product = new Product();
+
+                product.Name = productModel.Name;
+                product.Description = productModel.Description;
+                product.Price = productModel.Price;
+                product.Image = productModel.Image;
+                product.IsHome = productModel.IsHome;
+                product.IsApproved = productModel.IsApproved;
+                product.CategoryId = productModel.CategoryId;
+                product.Type = productModel.Type;
+                product.Brand = productModel.Brand;
+
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
