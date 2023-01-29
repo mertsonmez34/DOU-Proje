@@ -31,15 +31,5 @@ namespace E_Commerce.Models
         [DisplayName("Confirm Password")]
         [Compare("Password", ErrorMessage = "Password Does not Match.")]
         public string RePassword { get; set; }
-
-        [Range(50, 300)]
-        [DisplayName("Enter in cm")]
-        public int? Height { get; set; }
-
-        [Range(25, 500)]
-        [DisplayName("Enter in kg")]
-        public int? Weight { get; set; }
-
-        public bool? Sex { get; set; }
     }
 }

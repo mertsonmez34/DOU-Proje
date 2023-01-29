@@ -17,49 +17,70 @@
 
             <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="Red">
             <label class=" form-check-label ml-1 mr-2" for="option3">Red</label>
+
         </div>
     }
     @if (Model.Type == "Pantolon" || Model.Type == "Elbise")
     {
         <h5 class="mt-2">The Size Of Product:</h5>
-        <div class="row mt-2 ml-2">
+        <div class="row mt-2">
+
             <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="28" checked="checked">
             <label class=" form-check-label ml-1 mr-2" for="option1">28</label>
 
-            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="30">
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="30">
             <label class=" form-check-label ml-1 mr-2" for="option2">30</label>
 
-            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="32">
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="32">
             <label class=" form-check-label ml-1 mr-2" for="option3">32</label>
 
-            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="34">
-            <label class=" form-check-label ml-1 mr-2" for="option3">34</label>
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="34">
+            <label class=" form-check-label ml-1 mr-2" for="option4">34</label>
 
-            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="36">
-            <label class=" form-check-label ml-1 mr-2" for="option3">36</label>
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="36">
+            <label class=" form-check-label ml-1 mr-2" for="option5">36</label>
 
-            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="38">
-            <label class=" form-check-label ml-1 mr-2" for="option3">38</label>
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="38">
+            <label class=" form-check-label ml-1 mr-2" for="option6">38</label>
 
-            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="40">
-            <label class=" form-check-label ml-1 mr-2 " for="option3">40</label>
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="40">
+            <label class=" form-check-label ml-1 mr-2 " for="option7">40</label>
+
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="42">
+            <label class=" form-check-label ml-1 mr-2 " for="option8">42</label>
+
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="44">
+            <label class=" form-check-label ml-1 mr-2 " for="option9">44</label>
+
+            <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="46">
+            <label class=" form-check-label ml-1 mr-2 " for="option10">46</label>
         </div>
     }
-    @if (Model.Type == "T-Shirt")
+    @if (Model.Type == "T-Shirt" || Model.Type == "Ceket")
     {
         <h5 class="mt-2">The Size Of Product:</h5>
-        <div class="row row mt-2 ml-2">
-            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="S" checked="checked">
-            <label class=" form-check-label ml-1 mr-2" for="option1">S</label>
+        <div class="row row mt-2">
+
+            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="XS" checked="checked">
+            <label class=" form-check-label ml-1 mr-2" for="option1">XS</label>
+
+            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="S">
+            <label class=" form-check-label ml-1 mr-2" for="option2">S</label>
 
             <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="M">
-            <label class=" form-check-label ml-1 mr-2" for="option2">M</label>
+            <label class=" form-check-label ml-1 mr-2" for="option3">M</label>
 
             <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="L">
-            <label class=" form-check-label ml-1 mr-2" for="option3">L</label>
+            <label class=" form-check-label ml-1 mr-2" for="option4">L</label>
 
             <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="XL">
-            <label class=" form-check-label ml-1 mr-2" for="option3">XL</label>
+            <label class=" form-check-label ml-1 mr-2" for="option5">XL</label>
+
+            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="XXL">
+            <label class=" form-check-label ml-1 mr-2" for="option6">XXL</label>
+
+            <input type="radio" class="btn-check ml-4" name="options" id="option" autocomplete="off" value="XXXL">
+            <label class=" form-check-label ml-1 mr-2" for="option7">XXXL</label>
 
         </div>
 
@@ -67,7 +88,7 @@
     @if (Model.Type == "Ayakkabı")
     {
         <h5 class="mt-2">The Number Of The Shoes:</h5>
-        <div class="row row mt-2 ml-2">
+        <div class="row row mt-2">
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="36" checked="checked">
             <label class=" form-check-label ml-1 mr-2" for="option1">36</label>
 
@@ -78,26 +99,25 @@
             <label class=" form-check-label ml-1 mr-2" for="option3">38</label>
 
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="39">
-            <label class=" form-check-label ml-1 mr-2" for="option3">39</label>
+            <label class=" form-check-label ml-1 mr-2" for="option4">39</label>
 
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="40">
-            <label class=" form-check-label ml-1 mr-2" for="option3">40</label>
+            <label class=" form-check-label ml-1 mr-2" for="option5">40</label>
 
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="41">
-            <label class=" form-check-label ml-1 mr-2" for="option3">41</label>
+            <label class=" form-check-label ml-1 mr-2" for="option6">41</label>
 
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="42">
-            <label class=" form-check-label ml-1 mr-2" for="option3">42</label>
+            <label class=" form-check-label ml-1 mr-2" for="option7">42</label>
 
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="43">
-            <label class=" form-check-label ml-1 mr-2" for="option3">43</label>
+            <label class=" form-check-label ml-1 mr-2" for="option8">43</label>
 
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="44">
-            <label class=" form-check-label ml-1 mr-2" for="option3">44</label>
+            <label class=" form-check-label ml-1 mr-2" for="option9">44</label>
 
             <input type="radio" class="btn-check ml-2" name="options" id="option" autocomplete="off" value="45">
-            <label class=" form-check-label ml-1 mr-2" for="option3">45</label>
+            <label class=" form-check-label ml-1 mr-2" for="option10">45</label>
         </div>
     }
 </div>
-

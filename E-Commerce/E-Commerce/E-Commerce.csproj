@@ -277,6 +277,7 @@
     <Content Include="theme\img\Slider_2.jpeg" />
     <Content Include="theme\img\Slider_3.jpeg" />
     <Content Include="theme\img\user-icon.png" />
+    <Content Include="theme\js\FindMySize.js" />
     <Content Include="theme\js\ListFilter.js" />
     <Content Include="theme\js\holder.min.js" />
     <Content Include="theme\js\SelectedOption.js" />
@@ -367,6 +368,7 @@
     <Content Include="Views\Shared\_GetSelectedOption.cshtml" />
     <Content Include="Views\Shared\_SearchedList.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_FindMySize.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

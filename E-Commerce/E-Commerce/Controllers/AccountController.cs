@@ -103,9 +103,6 @@ namespace E_Commerce.Controllers
                 user.Surname = model.SurName;
                 user.Email = model.Email;
                 user.UserName = model.UserName;
-                user.Height = model.Height;
-                user.Weight = model.Weight;
-                user.Sex = model.Sex;
 
                 var result = _userManager.Create(user, model.Password);
 
@@ -223,9 +220,6 @@ namespace E_Commerce.Controllers
                 else
                     ModelState.AddModelError("", "Email cannot be empty");
 
-                currentUser.Height = user.Height;
-                currentUser.Weight = user.Weight;
-                currentUser.Sex = user.Sex;
 
                 if (!string.IsNullOrEmpty(user.Name) && !string.IsNullOrEmpty(user.Surname) && !string.IsNullOrEmpty(user.UserName) && !string.IsNullOrEmpty(user.Email))
                 {
@@ -295,50 +289,6 @@ namespace E_Commerce.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
-
-        [Authorize]
-        public string GetMySizeResult(ApplicationUser user)
-        {
-
-            if (user != null && user.Height != null && user.Weight != null)
-            {
-                string size;
-                float height = (float)user.Height;
-                float weight = (float)user.Weight;
-
-                float divided = height / 100;
-
-                var bmi = weight / (divided * divided);
-
-                if (bmi < 18.5)
-                {
-                    size = "S";
-                }
-                else if (bmi < 25)
-                {
-                    size = "M";
-                }
-                else if (bmi < 30)
-                {
-                    size = "L";
-                }
-                else if (bmi < 35)
-                {
-                    size = "XL";
-                }
-                else if (bmi <= 40)
-                {
-                    size = "XXL";
-                }
-                else
-                {
-                    size = "Oversized";
-                }
-                return size;
-            }
-            return null;
-        }
 
         [Authorize]
         public bool isAlreadyReviewed(int productID)

@@ -1,0 +1,70 @@
+﻿@using E_Commerce.Models;
+@model ProductModel
+@{
+    ViewBag.Title = "Details";
+    //Layout = "/Views/Shared/_Layout.cshtml";
+}
+<label id="hiddenType" hidden="hidden">@Model.Type</label>
+<div class="row">
+    @if (Model.Type == "T-Shirt" || Model.Type == "Ceket")
+    {
+        <h4 class="mt-4">Find My Size</h4>
+        <div class="row mt-1 ml-2">
+            <input type="text" name="height" id="heightForTshirtAndJacket" autocomplete="off" placeholder="Height">
+            @*<span>
+            <p style="margin-bottom:0">cm</p>
+
+        </span>*@
+            <input type="text" class="ml-4" name="weight" id="weightForTshirtAndJacket" autocomplete="off" placeholder="Weight">
+            @*<span>
+                <p class="ml-4" style="margin-bottom:0">kg</p>
+
+            </span>*@
+
+            <div class="row mt-4">
+                <label class="mt-2 ml-4" for="size">Choose size type:</label>
+
+                <select class="ml-2" name="sizeTypeForTshirtAndJacket" id="sizeTypeForTshirtAndJacket">
+                    <option value="tight">Tight</option>
+                    <option value="regular">Regular</option>
+                    <option value="oversize">Oversize</option>
+                </select>
+            </div>
+
+        </div>
+        <button class="mt-4 ml-4" type="button" id="btnFMSForTshirtAndJacket">Find My Size</button>
+        <label class="mt-4 ml-4" id="resultForTshirtAndJacket"></label>
+    }
+    @if (Model.Type == "Elbise" || Model.Type == "Pantolon")
+    {
+        <h4 class="mt-4">Find My Size</h4>
+        <div class="row mt-1 ml-2">
+            <input type="text" name="height" id="heightForClothesAndJeans" autocomplete="off" placeholder="Height">
+            @*<span>
+            <p style="margin-bottom:0">cm</p>
+
+        </span>*@
+
+            <input type="text" class="ml-4" name="weight" id="weightForClothesAndJeans" autocomplete="off" placeholder="Weight">
+            @*<span>
+                <p class="ml-4" style="margin-bottom:0">kg</p>
+
+            </span>*@
+            <div class="row mt-4">
+                <label class="mt-2 ml-4" for="size">Choose size type:</label>
+
+                <select class="ml-2" name="sizeTypeForClothesAndJeans" id="sizeTypeForClothesAndJeans">
+                    <option value="tight">Tight</option>
+                    <option value="regular">Regular</option>
+                    <option value="oversize">Oversize</option>
+                </select>
+            </div>
+
+        </div>
+        <button class="mt-4 ml-4" type="button" id="btnFMSForClothesAndJeans">Find My Size</button>
+        <label class="mt-4 ml-4" id="resultForClothesAndJeans"></label>
+    }
+
+</div>
+<script type="text/javascript" src="~/theme/js/FindMySize.js"></script>
+

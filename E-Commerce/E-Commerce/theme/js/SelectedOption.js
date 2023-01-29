@@ -1,7 +1,19 @@
-﻿var option = document.querySelectorAll("#option");
-var id = parseInt(document.getElementById("prodId").innerHTML);
+﻿
 $(document).ready(function () {
+    var option = document.querySelectorAll("#option");
+    var id = parseInt(document.getElementById("prodId").innerHTML);
+
     $('#addToCard').click(function () {
+        
+
+        var selectedOption;
+        for (const radioOption of option) {
+            if (radioOption.checked) {
+                selectedOption = radioOption.value;
+                break;
+            }
+        }
+
         var soapMessage = `<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">
                <soap:Header/>
                <soap:Body>
@@ -26,14 +38,6 @@ $(document).ready(function () {
         xmlhttp.send(soapMessage);
             // send request
             // ...
-
-        var selectedOption;
-        for (const radioOption of option) {
-            if (radioOption.checked) {
-                selectedOption = radioOption.value;
-
-            }
-        }
 
     });
 

@@ -64,23 +64,6 @@
 
                                     </div>
 
-                                    <div class="form-row ml-0 mr-0">
-                                        @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control", style = "width: 49%; margin-right: 1%", placeholder = "Height" } })
-                                        @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", style = "width: 49%; margin-left: 1%", placeholder = "Weight" } })
-                                    </div>
-
-                                    <div class="form-check-inline mt-2 mb-3">
-                                        @Html.RadioButtonFor(model => model.Sex, true, new { htmlAttributes = new { @class = "form-check-input w-100 h-100 mb-0 mr-2" } })
-                                        <label class="form-check-label ml-2 mr-4" for="exampleRadios1">
-                                            Male
-                                        </label>
-
-                                        @Html.RadioButtonFor(model => model.Sex, false, new { htmlAttributes = new { @class = "form-check-input w-100 h-100 mb-0 mr-2 ml-5" } })
-                                        <label class="form-check-label ml-2" for="exampleRadios2">
-                                            Female
-                                        </label>
-                                    </div>
-
                                     <div class="col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary">Register</button>
                                     </div>

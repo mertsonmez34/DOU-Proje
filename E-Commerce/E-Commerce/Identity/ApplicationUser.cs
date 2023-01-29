@@ -11,11 +11,5 @@ namespace E_Commerce.Identity
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        public int? Height { get; set; }
-
-        public int? Weight { get; set; }
-
-        public bool? Sex { get; set; }
-
     }
 }
